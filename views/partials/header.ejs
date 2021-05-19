@@ -1,0 +1,115 @@
+<div class ="headerall">
+    <div class="col-md-1">
+        <img class="homelogo" alt="Home Logo" src="img/EZARclean.png" />
+    </div>
+    <div class="col-md-7">
+        <ul class="headerstyle">
+            <li class="listyle">
+                <a href="/home" class="headerlinks">Home</a>
+            </li>
+            <li class="listyle">
+                <a href="/about" class="headerlinks">About</a>
+            </li>
+            <li class="listyle">
+                <a href="/apartments" class="headerlinks">Apartments</a>
+            </li>
+            <li class="listyle">
+                <a href="/forums" class="headerlinks">Forums</a>
+            </li>
+            <li class="listyle">
+                <a href="/map" class="headerlinks">Maps</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <div class="rightheader">
+             <p class="welcomeuser">
+             Welcome <%if (user.accType == 1) { %>           
+                Owner,  
+            <%}else if (user.accType == 0){ %>           
+                Tenant,   
+            <%}%>
+                    
+            <%-user.fname%> <%-user.lname%>!
+            </p>
+            <!-- <img class="profileimage" alt="Profile logo" src="images/kylo.png"/> -->
+            <a href="/profile">
+                <img class="profileimage img-circle" alt="Profile logo" src="img/profileImg/<%-user.image%>" >
+            </a>
+            
+             <!-- <a href="#" class="logoutuser"> Log Out </a> -->
+             <a class="logoutuser" href="/logout">Log Out</a>
+        </div>
+    </div>
+</div>
+
+<!-- <style>
+    .navbar {
+        padding: 10px;
+    }
+    </style>
+<nav class="navbar navbar-static-top" style="background-color: rgb(219,193,50);">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/home">
+                <img class="homelogo" alt="Bootstrap Image Preview" src="img/placeholderlogo.png" />
+              </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="listyle headerstyle"><a href="/home" class="headerlinks">Home <span class="sr-only">(current)</span></a></li>
+                 
+                
+                    <li class="listyle headerstyle"><a href="/about" class="headerlinks">About</a></li>
+              
+               
+                    <li class="listyle headerstyle">
+                        <a href="/apartments" class="headerlinks">Apartments</a>
+                    </li>
+            
+            
+                    <li class="listyle headerstyle">
+                        <a href="/forums" class="headerlinks">Forums</a>
+                    </li>
+               
+              
+                    <li class="listyle headerstyle">
+                        <a href="/map" class="headerlinks">Maps</a>
+                    </li>
+            </ul>        
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="welcome"> 
+                             <h3><b>Welcome <%if (user.accType == 1) { %>           
+                                        Owner   
+                                    <%}else if (user.accType == 0){ %>           
+                                        Tenant   
+                                    <%}%>
+                                            
+                                    <%-user.fname%>
+                            </h3></b>
+                        </li>
+                        <li class="imgProfile">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <img class="profileimage img-circle" alt="Profile logo" src="img/profileImg/<%-user.image%>"/></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="/profile">Profile Information</a></li>
+                              <li><a href="/apartmentProfiles/<%-user.accUID%>">Apartment Profiles</a></li>
+                              <li><a href="#">Settings</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li>
+                                <a class="dropdown-item" href="/logout">Log Out</a>
+                            </li>
+                            </ul> -->
+                         
+                             <!-- <img class="profileimage img-circle" alt="Profile logo" src="img/profileImg/<%-user.image%>" style="border-radius: 50%;" /> -->
+                        <!-- </li>
+                    </ul>
+        </div>
+    </div>
+</nav> -->

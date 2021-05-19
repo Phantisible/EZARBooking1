@@ -1,0 +1,174 @@
+
+    <title>Apartment Details</title>
+</head>
+<%- include ('partials/head.ejs') %>   
+<body class = "othercolorgrad">
+    <div class="container-fluid outercontain" >   
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+    <%- include ('partials/header.ejs') %>
+                    <div class="container-fluid">
+                        <div class="row aptholderdet">
+                            <div class="col-md-5">
+                                <div class="mainpicholder">
+                                    <img class="mainaptpic" alt="Apartment Image 1" src="img/<%-app.image1%>" />
+                                </div>
+                                <div class="row">								
+                                    <div class="secaptpicunder1">
+                                            <img class="secaptpic1" alt="Apartment Image 2" src="img/<%-app.image2%>" />
+                                    </div>
+                                    <div class="secaptpicunder2">
+                                        <img class="secaptpic3" alt="Apartment Image 4" src="img/imgplace.png" />
+                                        <!-- <img class="secaptpic2" alt="Apartment Image 3"src="img/<%-app.image3%>" /> -->
+                                    </div>
+                                    <div class="secaptpicunder3">
+                                        <img class="secaptpic3" alt="Apartment Image 4" src="img/imgplace.png" />
+                                        <!-- <img class="secaptpic3" alt="Apartment Image 4" src="img/<%-app.image4%>" /> -->
+                                    </div>
+                                    <div class="aptstarholder">
+                                        <img class="aptstarsunder" alt="Star Rating" src="img/starrating.png" />
+                                    </div>
+                                </div>
+    
+                            </div>
+                           
+<!-- 
+                                Modal
+                                <div class="modal fade" id="image1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img style="width: 500px;height: 400px;" src="img/<%-app.image1%>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- Modal -->
+                                <!-- <div class="modal fade" id="image2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img style="width: 500px;height: 400px;" src="img/<%-app.image1%>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- Modal -->
+                                <!-- <div class="modal fade" id="image3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img style="width: 500px;height: 400px;" src="img/<%-app.image2%>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- Modal -->
+                                <!-- <div class="modal fade" id="image4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img style="width: 500px;height: 400px;" src="img/<%-app.image3%>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script>
+                                    $('#myModal').on('shown.bs.modal', function() {
+                                        $('#myInput').trigger('focus')
+                                    })
+                                </script> -->
+
+                            
+                            <div class="col-md-7">
+                                <div class="aptdetailinfo">
+                                    <p class="aptdetailspace">
+                                        Address:
+                                        <%-app.city %>
+                                            <%-app.street %>
+                                                <%-app.baranggay %>
+                                    </p>
+                                    <p class="aptdetailspace">
+                                        Room type:
+                                        <%-app.type %>
+                                    </p>
+                                    <p class="aptdetailspace">
+                                        Capacity:
+                                        <%-app.capacity %>
+                                    </p>
+                                    <p class="aptdetailspace">
+                                        Person staying:
+                                        <%-app.city %>
+                                        <img class="aptdetailpic"src="img/arnan.png">
+                                    </p>
+                                    <p class="aptdetailspace">
+                                        Restriction:
+                                        <%-app.restriction %>
+                                    </p>
+                                    <p class="aptdetailspace">
+                                        Price: Php
+                                        <%-app.price %>/ month
+                                    </p>
+                                    <p class="aptdetailspace">
+                                        Owner: <img class="aptdetailpic" src="img/profileImg/<%-user.image%>"><br> Name:
+                                        <%-app.fname %>
+                                            <%-app.lname %><br> Contact:
+                                                <%-app.contact %><br> Email:
+                                                    <%-app.emailadd %><br>
+                                    </p>
+                                    <p class="aptdetailspace">
+                                        Description:
+                                    </p>
+                                    <p class="aptdetailspace">
+                                        " “Loren ipsum loren ipsum Loren ipsum loren ipsum Loren ipsum loren ipsum Loren ipsum loren ipsum Loren ipsum loren ipsum"
+                                        <%-user.accUID %>"
+                                    </p>
+                                    <%var z=app.accountType;
+                                    var check= app.checkReq %>
+                                        <%if(z == 1){%>
+                                            <a href="/requestRent/<%-app.appID %>/<%-user.accUID %>">
+                                                <button type="button" class="aprentbutton">
+                                                    Rent
+                                                </button>
+                                            </a>
+                                            <% }
+                                        else {%>
+                                            <button type="button" class="aprentbutton">
+                                                    Requested
+                                            </button>
+                                        <% }%>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <%- include ('partials/footer.ejs') %>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
