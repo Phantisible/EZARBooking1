@@ -256,7 +256,7 @@ background: linear-gradient(90deg, rgba(27,47,75,1) 0%, rgba(50,108,138,1) 38%, 
 }
 
 .homerow{
-	background-image: url(../images/HeadingIndex.png);
+	background-image: url(../img/HeadingIndex.png);
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
@@ -520,7 +520,7 @@ background: linear-gradient(90deg, rgba(27,47,75,1) 0%, rgba(50,108,138,1) 38%, 
 }
 
 .featappdiv{
-	background-image: url(../images/apartmentinside.png);
+	background-image: url(../img/apartmentinside.png);
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	position: relative;
@@ -2332,10 +2332,9 @@ a:hover{
     overflow: hidden;
     margin-bottom: -50px; /* any large number will do */
   /* padding-bottom: 700px; */ 
-  	border: 1px solid black;
-	padding: 55px;
-	height: 60%;
-	width: 500px;
+	border: 1px solid black;
+	padding: 50px 25px 50px 25px;
+	min-width: 500px;
 	position: absolute;
 	background-color: white;
 	top: 220px;
@@ -2343,8 +2342,7 @@ a:hover{
 	border: none;
 	overflow: hidden;
     margin-bottom: -50px; /* any large number will do */
-	padding-bottom: 700px;
-
+	padding-bottom: 800px;
 }
 .icon {
     padding: 10px;

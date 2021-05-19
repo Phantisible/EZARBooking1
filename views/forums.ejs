@@ -191,63 +191,66 @@
                         </div>
                 </div>  
                 <% } %>
-                <div class="forumsearch">
-                    <div class="search-container" style="margin:10px 0 50px 0;">
+                <div class="forumsearch" >
+                    <div class="search-container">
                         <form>
-                            <div class="input-container" style="border: 1px solid black; font-size: 20px;">
+                            <div class="form-group">
                                 
-                                <input class="input-field" type="text" placeholder="Search for a tag" name="searchforatag">
-                                <i class="fa fa-search"style="font-size: 30px;margin-top:10px;"></i>
-                                
-                                <a href="#" class="" style="color: white;font-size: 30px;margin:0px 0 0 10px;">
-                                    <button type="submit" class="" style="background-color: rgb(219,193,50);">
-                                        <i class="fas fa-arrow-right" style="width: 50px;"></i>
-                                    </button>
-                                 </a>
+                                <input type="search" class="apsearchbar" id="SearchFind" placeholder="Search for threads"/>
+                                <img class="apmagnify" src="img/magnify.png">
+                                <button class="apsearchbutton">→</button>
                             </div>
+                        
+                        <div style="padding:20px 30px 20px 50px">
+                            <div class="threads">
+                                <h2 style="text-align:center;">Threads</h2>
+                            
+                                <p class="breakAll narrow">
+                                    
+                                        <a href="#allThreads" class="nav-link nav-link-faded has-icon">#All Threads</a>
+                                        <a href="/forums/findRoommate" class="nav-link nav-link-faded has-icon">#Find a Roommate</a><br>
+                                        <a href="#roomsReview" class="nav-link nav-link-faded has-icon">#Rooms Review</a>
+                                        <a href="/forums/posts/<%-user.accUID%>" class="nav-link nav-link-faded has-icon">#Own Posts</a>
+                                
+                                </p>
+                            </div>
+                            <div class="top3posts" style="margin-top: 50px;">
+                                <h2 style="text-align:center;">Top 3 Posts</h2>
+                                <% for(x=0; x<3; x++){ %>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <b><h3> <%-data[x].fname%> <%-data[x].lname%></h3></b>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <h3>1/11/2021</h3>
+                                        </div>
+                                    </div>
+                                    
+                                        
+                                    <p class="discussiontittle"><%-data[x].name%></p>
+                                    <p class="text-secondary" style="margin-left:20px;">
+                                        <!-- <%-data[x].text%> -->
+                                    </p>
+                
+                                    <p style="font-size: 20px; margin-right: 4%; margin-bottom: 20px;">
+                                        <span style="margin: 10px 20px 0 0;"><b><i class="fa fa-arrow-up" aria-hidden="true"></i></b> 365 </span>
+                                        <span><b><i class="fa fa-arrow-down" aria-hidden="true"></i></b> 38 </span>
+                                    </p>    
+                                    
+                                <% } %>
+                            </div>
+                        </div>
+                        
+                        
                         </form>
+                        </div>
                     </div>
-                    <div class="threads">
-                        <h2 style="text-align:center;">Threads</h2>
-                    
-                        <p class="breakAll narrow">
-                            
-                                <a href="#allThreads" class="nav-link nav-link-faded has-icon">#All Threads</a>
-                                <a href="/forums/findRoommate" class="nav-link nav-link-faded has-icon">#Find a Roommate</a><br>
-                                <a href="#roomsReview" class="nav-link nav-link-faded has-icon">#Rooms Review</a>
-                                <a href="/forums/posts/<%-user.accUID%>" class="nav-link nav-link-faded has-icon">#Own Posts</a>
-                           
-                        </p>
                     </div>
-                    <div class="top3posts" style="margin-top: 50px;">
-                        <h2 style="text-align:center;">Top 3 Posts</h2>
-                        <% for(x=0; x<3; x++){ %>
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <b><h3> <%-data[x].fname%> <%-data[x].lname%></h3></b>
-                                </div>
-                                <div class="col-sm-4">
-                                    <h3>1/11/2021</h3>
-                                </div>
-                            </div>
-                             
-                                
-                            <p class="discussiontittle"><%-data[x].name%></p>
-                            <p class="text-secondary" style="margin-left:20px;">
-                                <!-- <%-data[x].text%> -->
-                            </p>
-        
-                            <p style="font-size: 20px; margin-right: 4%; margin-bottom: 20px;">
-                                <span style="margin: 10px 20px 0 0;"><b><i class="fa fa-arrow-up" aria-hidden="true"></i></b> 365 </span>
-                                <span><b><i class="fa fa-arrow-down" aria-hidden="true"></i></b> 38 </span>
-                            </p>    
-                            
-                        <% } %>
                     </div>
                 </div>
         </div>    
                     
-                    <nav class="pagination-forum">
+                    <nav class="pagination-forum" style="margin-bottom: 50px;">
                         <button type="button" class="nextpagebutton">
                             <<
                         </button>
@@ -258,8 +261,8 @@
                     </nav>
                 
         
-    </div>
-    </div>
+    
+    
             <%- include ('partials/footer.ejs') %> 
             </div>
         </div>
