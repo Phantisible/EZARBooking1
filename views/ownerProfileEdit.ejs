@@ -1,0 +1,130 @@
+<title>Owner Profile Edit</title>
+</head>
+<%- include ('partials/head.ejs') %>   
+<body class = "othercolorgrad">
+    <div class="container-fluid outercontain" >   
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+    <%- include ('partials/header.ejs') %>
+
+                <div>
+                    <div class="container-fluid">
+                        <div class="row  userprofholderedit">
+                            <div class="optionholder">
+                                
+                                <div class="optiondiv" >
+                                    <img class="optionimg" alt="Profile Information" src="img/iconperson.png" />
+                                    <a href="/profile" class="optiontext">
+
+                                    </a>
+                                    <p class="optiontext"style="color: black;">
+                                        Profile Information
+                                    </p>
+                                </div>
+                                <div class="optiondiv">
+                                    <img class="optionimg" alt="Profile Information" src="img/folder.png" />
+                                    <a href="/apartmentProfiles/<%-user.accUID%>" class="optiontext">
+                                        Apartment History
+                                    </a>
+                                </div>
+                                <div class="optiondiv">
+                                    <img class="optionimg" alt="Profile Information" src="img/cog.png" />
+                                    <a href="#" class="optiontext">
+                                        Settings
+                                    </a>
+                                </div>
+                                <div class="optionlogdiv">
+                                    <img class="optionimg" alt="Profile Information" src="img/ExitWhite.png" />
+                                    <a href="/login"  class="optiontext">
+                                        Log Out
+                                    </a>
+                                </div>
+                            </div>
+                            
+                                <div class="userholderedit">
+                                    <h3 class="tenanttext">
+                                         Profile Edit: <%-user.fname%>
+                                    </h3>
+                                    <img class="userprofstyle" onclick="document.getElementById('tenantmodal')" alt="Tenant Profile Image" src="img/profileImg/<%-user.image%>" />
+                                    <img class="pencil" alt="Edit Image" src="img/pencil.png">
+                                    <div class="tenantinfoeditdiv">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <form role="form" enctype="multipart/form-data" method="POST" action="/editOwner/<%-user.accUID%>">
+                                                        <div class="form-group">
+                                                            <label class="tenantinfolabels" for="UserMName">
+                                                                Account Picture
+                                                            </label>
+                                                            <input required class="tenantinfoinput" type="file" class="form-control" name="image" accept="image/*" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="tenantinfolabels" for="UserMName">
+                                                                First Name
+                                                            </label>
+                                                            <input class="tenantinfoinput" type="text" class="form-control" id="UserFName" />
+                                                        </div>
+                                                                    
+                                                        <div class="form-group">
+                                                            <label class="tenantinfolabels" for="UserLName">
+                                                            Last Name
+                                                        </label>
+                                                            <input class="tenantinfoinput" type="text" class="form-control" name="lname" required/>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="tenantinfolabels" for="UserBDate">
+                                                                Birthdate
+                                                            </label>
+                                                            <input class="tenantinfoinput" type="date" class="form-control" id="UserBDate" />
+                                                        </div>
+                                                        <div>
+                                                            <label class="tenantinfolabels" for="UserEmail">
+                                                            Sex:
+                                                        </label>
+                                                            <select name="gender" class="form-select signlabelsprof selectorstyle" aria-label="Default select example" required>
+                                                        <option selected>Select Gender</option>
+                                                        <option value="Female">Female</option>
+                                                        <option value="Male">Male</option>
+                                                        </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="tenantinfolabels" for="UserEmail">
+                                                                Email Address:
+                                                            </label>
+                                                            <input class="tenantinfoinput" type="email" class="form-control" id="email" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="tenantinfolabels" for="UserContactNumber">
+                                                            Contact Number
+                                                        </label>
+                                                            <input class="tenantinfoinput" type="text" class="form-control" name="contact" required />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="tenantinfolabels" for="UserMessage">
+                                                            About Me:
+                                                        </label>
+                                                            <textarea class="tenantaboutme" type="text" class="form-control" name="details" required /> 
+                                                            </textarea>
+                                                        </div>
+                                                        <button type="submit" class="tenanteditbutton">Save</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                        
+                        </div>
+                    </div>
+                </div>
+
+                <%- include ('partials/footer.ejs') %> 
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

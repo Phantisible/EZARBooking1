@@ -1,0 +1,1460 @@
+
+.logostyle {
+    /* padding-top: 50px;
+    margin-left: 20px;
+    height: 400px;
+    width: 400px; */
+    margin-top: 150px;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	height: 250px;
+	width: 250px;
+	border-radius: 50%;
+}
+
+.signdiv {
+    /* border-style: solid; */
+    text-align: center;
+    height: 650px;
+    background-color: #ECCC1C;
+}
+
+.closebutt {
+    float: right;
+    margin-top: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+	background-color: #1B2F4B;
+	color: white;
+	border: none;
+	padding: 4px 12px 4px 12px;
+}
+.closebutt:hover{
+	color: white;
+}
+.mainsigndiv {
+    border-style: solid;
+    height: 650px;
+    background-color: white;
+}
+.mainsigndiv2{
+	border:none; 
+	height: 650px;
+	background-color: #1B2F4B;
+	padding-left: 50px !important;
+	padding-top: 20px;
+}
+
+.signdivpad {
+    padding-top: 135px;
+}
+
+.signtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+.signtitle2{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 30px;
+	padding-top: 30px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	color: white;
+	letter-spacing: 2px;
+	font-weight: 700;
+}
+
+.logtitle{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 50px;
+	text-align: center;
+	padding-top: 100px;
+	font-weight: 800;
+	letter-spacing: 4px;
+	padding-bottom: 70px;
+}
+
+.signbutt{
+	margin-top: 10px;
+	float: right;
+	font-family: 'Montserrat', sans-serif;
+	color: white;
+	border:none;
+	border-radius: 25px;
+	background-color: #ECCC1C;
+	font-weight: 700;
+	padding: 10px 20px 10px 20px;
+	font-size: 18px;
+	margin-right: 50px;
+	margin-bottom: 20px;
+}
+
+.logbutt{
+	padding-left: 180px;
+	padding-top: 30px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.signlabels{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 18px;
+	font-weight: 500;
+	color: white;
+}
+.signlabelsprof{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 18px;
+	font-weight: 500;
+	color: black;
+}
+.signlabelsselect{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 18px;
+	font-weight: 500;
+	color: black;
+}
+.loglabels{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 18px;
+	font-weight: 500;
+	color: black;
+}
+.inputterstyleL {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    max-width: 450px;
+}
+
+.Lformchange {
+    margin-left: 50px;
+}
+
+.inputterstyleS {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    max-width: 420px;
+}
+
+.selectorstyle {
+    padding: 6px 6px 6px 6px;
+    margin-bottom: 10px;
+}
+
+.regbuttonstyle {
+    font-family: 'Montserrat', sans-serif;
+    min-width: 100px;
+    margin-top: 20px;
+    min-height: 40px;
+}
+
+.logbuttonstyle {
+    /* font-family: 'Montserrat', sans-serif;
+    min-width: 100px;
+    margin-top: 20px;
+    min-height: 36px; */
+    font-family: 'Montserrat', sans-serif;
+	padding: 10px 30px 10px 30px;
+	background-color: #ECCC1C;
+	border-radius: 25px;
+	color: white;
+	border: none;
+}
+
+.logflavorstyle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+	letter-spacing: 2px;
+}
+
+.loghyperstyle {
+    /* font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    color: black; */
+    font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	color: white;
+	font-weight: 600;
+	letter-spacing: 1px;
+}
+.loghyperstyle:hover{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	color: white;
+	font-weight: 600;
+}
+.formpadding {
+    padding-left: 20px;
+}
+
+.homelogo {
+    /* background-color: white;
+    height: 120px;
+    width: 120px;
+    margin-left: 20px;
+    border-radius: 25%; */
+    height: 140px;
+	width: 140px;
+	margin-left: 20px;
+	border-radius: 50%;
+}
+.homecolor{
+	background-color: #1B2F4B;
+}
+.othercolor{
+	background-color: #eccc1c;
+}
+.othercolorgrad{
+background: rgb(27,47,75);
+background: linear-gradient(90deg, rgba(27,47,75,1) 0%, rgba(50,108,138,1) 38%, rgba(236,204,28,1) 100%);
+}
+.headerlinks a{
+    color: white;
+}
+.headerlinks:visited {
+    color: white;
+    text-decoration: none;
+}
+.listyle {
+    display: inline;
+    width: 200px;
+    float: left;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: black;
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
+.listyle:hover .headerlinks {
+    color: #FFF50B;
+    background-color: black;
+    text-decoration: none;
+}
+
+.listyle:hover {
+    background-color: black;
+    color: #FFF50B;
+    text-decoration: none;
+}
+
+.headerstyle {
+    margin-top: 30px;
+    float: left;
+}
+.welcome {
+    color: white;
+    margin-top: 30px;
+    float: left;
+}
+
+/* .burgermenu {
+    display: inline;
+    float: right;
+    margin-left: 30px;
+    margin-right: 90px;
+    margin-top: 2px;
+} */
+
+.profileimage {
+    margin-top: 10px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+.homerow {
+    padding-top: 20px;
+    background-color: rgb(219,193,50);
+}
+
+.burgerclick {
+    height: 100px;
+    width: 80px;
+}
+
+.logoholder {
+    margin-top: 20px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.mainlogo {
+    width: 250px;
+    height: 250px;
+    border-radius: 25%;
+}
+
+.flavoredtext {
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 30px;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.easylooking {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: 900;
+    padding-right: 200px;
+    letter-spacing: 3px;
+}
+
+.easybooking {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: 900;
+    padding-left: 200px;
+    letter-spacing: 3px;
+    padding-bottom: 20px;
+}
+
+.easyholder {
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.undereasy {
+    text-align: center;
+}
+
+.underimage {
+    height: 250px;
+    width: 250px;
+}
+
+.undertext {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+.learnbutt {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.underlearn {
+    border: 1px solid black;
+    font-family: 'Open Sans', sans-serif;
+    padding: 10px 20px;
+    background-color: white;
+}
+
+.underlearn:hover {
+    background: black;
+    color: white;
+}
+
+.underapp {
+    text-align: center;
+}
+
+.featapp {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 40px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    letter-spacing: 3px;
+}
+
+.apartmentspics {
+    height: 300px;
+    width: 300px;
+}
+
+.starrating {
+    height: 44px;
+    width: 300px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.apdescription {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    text-align: justify;
+    padding-left: 140px;
+}
+
+.ppimagereview {
+    height: 200px;
+    width: 200px;
+}
+
+.webreview {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 100;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 120px;
+    padding-right: 120px;
+    text-align: justify;
+}
+
+body {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.footerform {
+    color: white;
+    /* font-family: 'Open Sans', sans-serif; */
+    background-color: rgb(44,44,44);
+    padding-bottom: 100px;
+    padding-top: 50px;
+    margin-top: auto;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+ .footertitle{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 50px;
+    letter-spacing: 3px;
+    
+}
+.footerleft {
+    padding-left: 30px;
+}
+
+.footertext {
+    font-size: 20px;
+    padding-top: 20px;
+    margin-bottom: 10px;
+}
+/*
+.footerright {
+    padding-left: 150px;
+} */
+
+.formstyle {
+    border-width: 0px 0px 2px 0px;
+    display: block;
+    width: 500px;
+    padding-top: 10px;
+   
+    font-size: 20px;
+    background: transparent;
+    border-bottom: 1px solid white;
+
+}
+
+.formstyle:focus {
+    border-width: 0px 0px 2px 0px;
+    font-size: 20px;
+}
+
+.footerlabel {
+    font-size: 20px;
+}
+
+.footerlabelMessage {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+.FooterButton {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 25px;
+    color: white;
+    background-color: rgb(219,193,50);
+    padding: 8px 32px;
+    border-width: 1px;
+    margin-top: 20px;
+    border-radius: 70px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+}
+
+.aboutrow {
+    padding-top: 20px;
+    padding-bottom: 60px;
+}
+
+.abouttext {
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 80px;
+    font-size: 40px;
+    font-weight: 800;
+    padding-left: 40px;
+    letter-spacing: 4px;
+}
+
+.mainabouttext {
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 30px;
+    padding-left: 80px;
+    padding-bottom: 20px;
+    font-size: 80px;
+    font-weight: 900;
+    letter-spacing: 100px;
+}
+
+.aboutimage {
+    height: 250px;
+    width: 250px;
+}
+
+.aboutunder {
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 40px;
+    padding-left: 100px;
+    padding-right: 100px;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.aboutunder2 {
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 40px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.aboutsecond {
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding-bottom: 40px;
+}
+
+.aboutsecond2 {
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding-bottom: 40px;
+}
+
+.missionholder {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.missiontext {
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 40px;
+    font-size: 40px;
+    font-weight: 800;
+    padding-left: 20px;
+    letter-spacing: 4px;
+    padding-bottom: 60px;
+}
+
+.missionsecond {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    font-style: italic;
+    padding-left: 500px;
+    padding-right: 500px;
+    line-height: 40px;
+}
+
+.quote1 {
+    height: 100px;
+    width: 150px;
+    margin-right: 1000px;
+}
+
+.quote2 {
+    height: 100px;
+    width: 150px;
+    margin-left: 1000px;
+}
+
+.optionholder {
+    border: 1px solid;
+    margin-left: 100px;
+    margin-right: 40px;
+    padding: 40px 30px 30px 30px;
+    margin-bottom: 40px;
+}
+
+.optiondiv {
+    margin-bottom: 30px;
+}
+
+.optionlogdiv {
+    margin-top: 200px;
+}
+
+.optionimg {
+    height: 40px;
+    width: 40px;
+    display: inline;
+}
+
+.optiontext {
+    display: inline;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    position: relative;
+    top: 4px;
+    left: 6px;
+    letter-spacing: 1px;
+}
+
+.userholder {
+    border: 1px solid;
+    padding: 40px 40px 40px 40px;
+    margin-right: 100px;
+    margin-bottom: 50px;
+}
+
+.userprofstyle {
+    height: 200px;
+    width: 200px;
+    display: inline;
+}
+
+.pencil {
+    height: 50px;
+    width: 50px;
+    z-index: +1;
+    right: 56px;
+    top: 70px;
+    position: relative;
+}
+
+.tenanttext {
+    float: right;
+    display: inline;
+    padding-right: 30px;
+    padding-top: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    letter-spacing: 2px;
+    font-weight: 900;
+}
+
+.tenantbutton {
+    display: inline;
+    position: relative;
+    top: 70px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    background-color: white;
+    border: 1px solid;
+    padding: 6px 24px;
+}
+
+.tenanteditbutton {
+    display: inline;
+    position: relative;
+    top: 70px;
+    right: 54px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    background-color: white;
+    border: 1px solid;
+    padding: 6px 24px;
+}
+
+.tenantinfodiv {
+    border: 1px solid;
+    margin-top: 30px;
+    margin-right: 40px;
+    margin-left: 20px;
+}
+
+.tenantinfo {
+    padding: 20px 20px 20px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.tenantinfoeditdiv {
+    border: 1px solid;
+    margin-top: 30px;
+    margin-right: 40px;
+    margin-left: 20px;
+    padding: 40px 40px 40px 40px;
+}
+
+.tenantinfolabels {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+
+.tenantinfoinput {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    min-width: 500px;
+}
+
+.tenantaboutme {
+    min-width: 500px;
+    min-height: 200px;
+    border: 2px solid black;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+.tenantmodal {
+    min-width: 700px;
+    min-height: 300px;
+    text-align: center;
+    display: none;
+    z-index: 1;
+    position: fixed;
+    background-color: white;
+    margin-top: 300px;
+}
+
+.apartmenttitle {
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 30px;
+    padding-left: 60px;
+    padding-bottom: 20px;
+    font-size: 72px;
+    font-weight: 900;
+    letter-spacing: 62px;
+}
+
+.apartmentunder {
+    padding-left: 60px;
+    padding-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+.apartmentsort {
+    float: right;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    padding-right: 10px;
+    padding-top: 6px;
+}
+
+.apartmentsortdrop {
+    float: right;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    padding: 6px 6px 6px 6px;
+    margin-bottom: 10px;
+    font-weight: 1000;
+    border: none;
+    margin-right: 60px;
+}
+
+.apartmentinfo {
+    border: 1px solid;
+    margin: 60px 60px 60px 60px;
+    padding: 50px 50px 50px 50px;
+    min-height: 500px;
+    min-width: 954px;
+}
+
+.apartmentinfoProfiles {
+    border: 1px solid;
+    margin: 40px 40px 40px 40px;
+    padding: 40px 40px 40px 40px;
+    min-height: 300px;
+    min-width: 600px;
+}
+
+.apartmentinfopic {
+    width: 350px;
+    height: 300px;
+    float: left;
+    position: absolute;
+}
+
+.apartmentrating {
+    width: 350px;
+    height: 70px;
+    position: absolute;
+    margin-top: 50px;
+}
+
+.apttextholder {
+    margin-top: 30px;
+}
+
+.apartmenttext {
+    display: block;
+    padding-left: 400px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.apartmentbutton {
+    float: right;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    border: 1px solid;
+    min-height: 40px;
+    min-width: 130px;
+    margin-top: 80px;
+}
+
+.apartsearch {
+    border: 1px solid black;
+    padding: 50px 50px 50px 50px;
+    max-width: 500px;
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+.apsearchbar {
+    max-height: 40px;
+    min-width: 340px;
+    background-color: white;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    display: inline;
+    z-index: 1;
+    border: 1px solid black;
+    padding: 10px 10px 10px 10px;
+    margin-left: 50px;
+}
+
+.apmagnify {
+    z-index: 3;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 360px;
+    top: 56px;
+}
+
+.apsearchbutton {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 5px 8px 5px 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    position: absolute;
+}
+
+.nextpagebutton {
+    border: none;
+    background-color: white;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    padding: 6px 6px 6px 6px;
+    display: inline;
+}
+
+.nextpageholder {
+    position: absolute;
+    bottom: 10px;
+    left: 900px;
+}
+
+.pagenext {
+    display: inline;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.checklabel {
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    padding-bottom: 10px;
+    margin-left: 40px;
+}
+
+.checklabel2 {
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 50px;
+    margin-top: 10px;
+    font-weight: 800;
+}
+
+.checkboxes {
+    margin-left: 50px;
+}
+
+.checkboxin {
+    padding: 5px 5px 5px 5px;
+    min-height: 24px;
+    min-width: 24px;
+    border-radius: 0px;
+}
+
+.capacitynumber {
+    max-height: 30px;
+    min-width: 300px;
+    background-color: white;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    display: inline;
+    border: 1px solid black;
+    padding: 10px 10px 10px 10px;
+    margin-left: 90px;
+    margin-bottom: 30px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.apstars {
+    height: 50px;
+    width: 250px;
+    margin-left: 120px;
+    margin-bottom: 20px;
+}
+
+.budgetinput {
+    max-height: 30px;
+    max-width: 150px;
+}
+
+.budgetholder {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.apsearchbutton2 {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px 20px 10px 20px;
+    float: right;
+    margin-top: 100px;
+    margin-right: 30px;
+}
+
+.mainapholder {
+    margin-bottom: 50px;
+}
+
+.aprowstyle {
+    margin-bottom: 50px;
+}
+
+.aptdetailinfo {
+    border: 1px black solid;
+    padding: 50px 50px 50px 50px;
+    margin-right: 100px;
+    min-width: 750px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    min-height: 700px;
+}
+
+.aprentbutton {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 10px 20px 10px 20px;
+    float: right;
+    margin-top: 50px;
+    width: 120px;
+    height: 50px;
+}
+
+.aptstarsunder {
+    width: 400px;
+    height: 65px;
+    margin-top: 10px;
+    margin-left: 7 0px;
+}
+
+.aptstarholder {
+    text-align: center;
+    margin-bottom: 200px;
+}
+
+.mainaptpic {
+    width: 510px;
+    height: 350px;
+    padding-bottom: 20px;
+    margin-left: 60px;
+}
+
+.mainpicholder {
+    text-align: center;
+}
+
+.secaptpic1 {
+    width: 150px;
+    height: 150px;
+    float: right;
+}
+
+.secaptpic2 {
+    width: 150px;
+    height: 150px;
+    padding-left: 10px;
+}
+
+.secaptpic3 {
+    width: 150px;
+    height: 150px;
+}
+
+.aptdetailpic {
+    width: 50px;
+    height: 50px;
+}
+
+.aptdetailspace {
+    margin-bottom: 20px;
+}
+
+/* FORUM */
+.forum{
+    margin-left: 4%;
+}
+.headline{
+    background: rgb(27,47,75);
+    font-family: 'Montserrat', sans-serif;
+    height: 150px;
+}
+.headlinebody{
+    padding-top: 13px;
+}
+.messageicon{
+    margin-top: 30px;
+    position: relative;
+    z-index: 10;
+    top: -150px;
+    left: 45%;
+    height: 200px;
+    width: 230px;
+}
+.searchtag{
+    margin-top: 20px;
+    position: relative;
+    z-index: 10;
+    top: -380px;
+    right: 5%;
+    width: 230px;
+    float: right;
+    width: 500px;
+    padding: 50px;
+    background-color: white;
+    overflow: hidden;
+    margin-bottom: -50px; /* any large number will do */
+  padding-bottom: 700px;
+
+}
+.icon {
+    padding: 10px;
+    background: rgb(27,47,75);
+    color: white;
+    min-width: 50px;
+    text-align: center;
+  }
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: none; border-width: 0; box-shadow: none;
+
+  }  
+  .input-container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+.forumImage{
+    /* height: 150px;
+    width: 150px;
+    position: relative;
+    z-index: 10;
+    top: 90px;
+    left: 4%;
+    border-radius: 50%; */
+    position: relative;
+    height: 150px;
+    width: 150px;
+    z-index: 10;
+    top: 90px;
+    margin-left: 20px;
+    border-radius: 50%;
+}
+/*  */
+.talk-bubble {
+    z-index: 10;
+    top: -90px;
+    position: relative;
+	background: white;
+    display: inline-block;
+	border-radius: .4em;
+    width: 50%;
+    margin-left: 220px;
+    min-width: 20%;
+}
+.talk-bubble:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 27px solid transparent;
+	border-right-color: #00aabb;
+	border-left: 0;
+	margin-top: -27px;
+	margin-left: -27px;
+}
+
+/* Right triangle, left side slightly down */
+.tri-right.border.left-in:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: -40px;
+	right: auto;
+  top: 0;
+	bottom: auto;
+	border: 20px solid;
+	border-color: #666 #666 transparent transparent;
+}
+.tri-right.left-in:after{
+    content: '';
+	position: absolute;
+	left: 0;
+	top: 100px;
+	width: 0;
+	height: 0;
+	border: 27px solid transparent;
+	border-right-color: white;
+	border-left: 0;
+	margin-top: -27px;
+	margin-left: -27px;
+	/* content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: -30px;
+	right: -30px;
+  top: 40px;
+	bottom: 100px;
+	border: 30px solid;
+	border-color: lightyellow lightyellow transparent transparent; */
+}
+
+.forumlist {
+    padding-top: 10px;
+}
+
+
+
+
+
+/* talk bubble contents */
+.talktext{
+    padding: 1em;
+    text-align: left;
+    line-height: 1.5em;
+    font-family: 'Open Sans', sans-serif;
+    margin: 20px 20px 20px 20px;
+}
+
+.separator {
+    border-top: 3px solid rgb(158,158,158);
+}
+.postbutton {
+    background-color:rgb(236, 204, 28);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: white;
+    padding: 5px 20px;
+    margin: 20px 20px 20px 0px;
+    border-radius: 70px;
+    float:right;
+}
+
+.discussionlist{
+    left: 4%;
+    padding: 1em;
+    line-height: 1.5em;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 100px;
+}
+.bubble{
+    z-index: 10;
+    
+    position: relative;
+	background: white;
+    display: inline-block;
+	border-radius: .4em;
+    width: 52%;
+
+    min-width: 20%;
+    height: auto;
+    margin-left: 70px;
+    padding: 10px;
+    box-shadow: 15px 15px 5px #00000041;
+}
+.discussion-body {
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+}
+.discussion-image {
+    /* height: 150px;
+    width: 150px;
+    z-index: 10;
+    top: 90px;
+    margin-left: 200px;
+     */
+    margin-top: 20px;
+    position: absolute;
+    z-index: 15;
+    top: 5;
+    border-radius: 50%;
+}
+.commentbutton {
+
+    background-color:rgb(27, 47, 75);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: white;
+    padding: 5px 20px;
+    margin: 20px 20px -25px 0px;
+    border-radius: 70px;
+    float:right;
+
+}
+.pagination-forum {
+    margin-left: 50%;
+}
+.discussioncomment{
+    margin-top: 10px;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+.discussioncomment-image{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+/* .columnforum {
+    float: left;
+    width: 25%;
+  } */
+.sortby{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    margin-left: 250px;
+    color: white;
+}
+/* forumsDiscussion */
+.userdiscussion{
+    font-family: 'Montserrat', sans-serif;
+    height: auto;
+    z-index: 11;
+    margin-top: 90px;
+    position: relative;
+	background: white;
+    display: inline-block;
+    width: 50%;
+    margin-left: 100px;
+    border: 1px solid white;
+    box-shadow: -20px 20px rgb(27, 47, 75);
+
+}
+
+.discussiontittle{
+    margin-top: 10px;
+    margin-left:10px;
+    font-size: 19px;
+}
+.userdiscussionbody{
+    margin-bottom: 60px;
+    margin-left: 200px;
+}
+.discussiondata{
+    font-size: 15px;
+
+    z-index: 10;
+
+    position: relative;
+    margin-left: 150px;
+}
+.userdiscussioncommentlist{
+    z-index: 10;
+    position: relative;
+   
+   margin-bottom: 50px
+}
+ .userdiscussionlist{
+    
+    left: 4%;
+    line-height: 1.5em;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 100px;
+} 
+.userdiscussioncommentbubble{
+    z-index: 10;
+    position: relative;
+	background: white;
+    display: inline-block;
+	border-radius: .4em;
+    width: 52%;
+    min-width: 20%;
+    height: auto;
+    margin-left: 70px;
+    padding: 10px;
+    /* box-shadow: 15px 15px 5px #00000041; */
+
+}
+.replybutton {
+
+    background-color:rgb(27, 47, 75);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 70px;
+    float:left;
+}
+
+.addComment {
+  
+    /* width: 52%; */
+    
+    height: auto;
+    /* margin-left: 70px; */
+    padding: 10px;
+    /* box-shadow: 15px 15px 5px #00000041; */
+
+}
+.comment-bubble {
+    z-index: 10;
+    top: 0px;
+    position: relative;
+	background: white;
+    display: inline-block;
+	border-radius: .4em;
+    width: 45%;
+    margin-left: 200px;
+    min-width: 20%;
+}
+.comment-bubble:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 60%;
+	width: 0;
+	height: 0;
+	border: 27px solid transparent;
+	border-right-color: white;
+	border-left: 0;
+	margin-top: -27px;
+	margin-left: -27px;
+}
+
+/* Right triangle, left side slightly down */
+.tri-right.border.left-in:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: -40px;
+	right: auto;
+  top: 0;
+	bottom: auto;
+	border: 20px solid;
+	border-color: #666 #666 transparent transparent;
+}
+.tri-right.left-in:after{
+    content: '';
+	position: absolute;
+	left: 0;
+	top: 30%;
+	width: 0;
+	height: 0;
+	border: 27px solid transparent;
+	border-right-color: white;
+	border-left: 0;
+	margin-top: -27px;
+	margin-left: -27px;
+}
+.commenttext {
+    padding: 20px;
+    text-align: left;
+    line-height: 1.5em;
+    font-family: 'Open Sans', sans-serif;
+    margin: 20px 20px 20px 20px;
+    
+}
+.commenticon{
+    margin:90px 0 5px 50px;
+    height: 100px;
+    width: 150px;
+    /* Daco_6165 2 */
+
+/* position: absolute; */
+width: 172px;
+height: 80px;
+left: 215px;
+top: 508px;
+
+}
+.breakAll {
+    word-break: break-all;
+    font-size: 25px;
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+
+    <title>About</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="aboutrow row ">
+                    <div class="col-md-1">
+                        <img class="homelogo" alt="Home Logo" src="img/placeholderlogo.png" />
+                    </div>
+                    <div class="col-md-7">
+                        <ul class="headerstyle">
+                            <li class="listyle">
+                                <a href="/home" class="headerlinks">Home</a>
+                            </li>
+                            <li class="listyle">
+                                <a href="/about" class="headerlinks">About</a>
+                            </li>
+                            <li class="listyle">
+                                <a href="/apartments" class="headerlinks">Apartments</a>
+                            </li>
+                            <li class="listyle">
+                                <a href="/forums" class="headerlinks">Forums</a>
+                            </li>
+                            <li class="listyle">
+                                <a href="/map" class="headerlinks">Maps</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 logoholder">
+                            <!-- <form action="/profile" method="POST">
+                                <h1>Upload Photo</h1>
+                                <input type="file" name="avatar" />
+                                <button type="submit">Submit</button>
+
+                            </form> -->
+
+                            <img src="img/<%-data.picture%>">
+
+
+                            <form method="post" enctype="multipart/form-data" action="/upload">
+                                Name: <input type="text" name="fname" /> Last name: <input type="text" name="lname" />
+                                <input type="file" name="avatar" accept="image/*" />
+                                <input type="submit" value="Upload" />
+                            </form>
+
+
+
+                            <!-- Button trigger modal -->
+                            <img src="img/burgermenu.png" style="width: 50px; height: 50px;" data-toggle="modal" data-target="#exampleModal1"> Launch demo modal
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img style="width: 500px;height: 400px;" src="img/<%-data.picture%>">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br><br><br>
+
+
+                            <img src="img/burgermenu.png" style="height: 50px; width: 50px;" onclick="myFunction()">
+                            <div id="samp1"></div>
+                            <div id="samp2"></div>
+                            <div id="samp3"></div>
+                            <script>
+                                var x = 0;
+
+                                function myFunction() {
+                                    x++;
+                                    if (x < 4) {
+                                        // document.writeln("<button onclick=' myFunction()'>" + x + "</button><br><br>").innerHtml;
+                                        document.getElementById("samp" + x).innerHTML = '<div id="sampol' + x + '"><img src="img/add.png" style="height: 50px; width: 50px;" onclick="myFunction()"><img src="img/burgermenu.png" style="height: 50px; width: 50px;" onclick="myFunctionDelete()"></div>';
+                                    }
+
+                                }
+
+                                function myFunctionDelete() {
+
+                                    document.getElementById("sampol" + x).remove();
+                                    x--;
+
+                                }
+
+                                $('#myModal').on('shown.bs.modal', function() {
+                                    $('#myInput').trigger('focus')
+                                })
+                            </script>
+                        </div>
+                    </div>
+
+                    %>
+
+                </div>
+
+
+
+
+                <div class="row footerform">
+                    <div class="col-md-6 footerleft">
+                        <h3 class="footerquestion">
+                            Questions?
+                        </h3>
+                        <p class="footertext">
+                            If you have any questions or issues regarding the system,<br> please feel free to leave a message.
+                        </p>
+                        <p class="footertext">
+                            Your feedback is greatly appreciated
+                        </p>
+                    </div>
+                    <div class="col-md-6 ">
+                        <form role="form">
+                            <div class="form-group footerright">
+
+                                <label class="footerlabel" for="UserName">
+								Your Name
+							</label>
+                                <input type="text" class="formstyle" id="UserName" />
+                            </div>
+                            <div class="form-group footerright">
+                                <label class="footerlabel" for="UserEmail">
+								Your Email
+							</label>
+                                <input type="email" class="formstyle" id="UserEmail" />
+                            </div>
+                            <div class="form-group footerright">
+                                <label class="footerlabelMessage" for="UserMessage">
+								Message
+							</label>
+                                <input type="text" class="formstyle" id="UserMessage" />
+                            </div>
+                            <div class="footerright">
+                                <button type="submit" class="FooterButton">
+							Send
+						</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
