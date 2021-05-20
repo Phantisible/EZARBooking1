@@ -1,51 +1,103 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<link rel="stylesheet" type="text/css" href="css/styles1.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-	<link rel="icon" href="img/EZARclean.png">
-	<title>Log-In</title>
+    <link rel="stylesheet" type="text/css" href="css/styles1.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/EZARclean.png">
+    <title>Log-In</title>
 </head>
 
 <body style="background-color: black;">
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2">
-        </div>    
-        <div class="signdivpad col-md-8">
-            <div class="row">
-                <div class="mainsigndiv col-md-6">
-                    <h3 class="logtitle">
-                        LOG IN
-                    </h3>
-                    <form class="Lformchange" role="form" method="POST" action="/login">
-                        <div class="form-group">
-                            <label class="loglabels" for="Email Address">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="signdivpad col-md-8">
+                <div class="row">
+                    <div class="mainsigndiv col-md-6">
+                        <h3 class="logtitle">
+                            LOG IN
+                        </h3>
+                        <form class="Lformchange" role="form" method="POST" action="/login">
+                            <div class="form-group">
+                                <label class="loglabels" for="Email Address">
                             Email Address
                             </label>
-                            <input type="email" class="inputterstyleL form-control" name="email">
-                        </div>
-                        <div class="form-group">
-                            <label class="loglabels" for="Password">
+                                <input type="email" class="inputterstyleL form-control" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="loglabels" for="Password">
                             Password
                             </label>
-                            <input type="password" class="inputterstyleL form-control" name="password">
-                        </div>
-                        <div class="logbutt">
-                            <button type="submit" class="logbuttonstyle">
+                                <input type="password" class="inputterstyleL form-control" name="password" required>
+                            </div>
+                            <div class="logbutt">
+                                <button type="submit" class="logbuttonstyle">
                                 Sign-In
                             </button>
+
+
+                            </div>
+                        </form>
+                        <button type="submit" class="logbuttonstyle" data-toggle="modal" data-target="#myModal">
+                                Forget Password?
+                            </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Change Password</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="POST" action="/updatePassword">
+                                            <div class="form-group">
+                                                <label class="loglabels" for="Email Address">
+                                                Email Address
+                                                </label>
+                                                <input type="email" class="inputterstyleL form-control" name="email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="loglabels" for="Password">
+                                            Password
+                                            </label>
+                                                <input type="password" class="inputterstyleL form-control" name="password" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="loglabels" for="Password">
+                                            Repeat Password
+                                            </label>
+                                                <input type="password" class="inputterstyleL form-control" name="repeatpassword" required>
+                                            </div>
+                                            <button type="submit" class="logbuttonstyle">
+                                            Update Password
+                                        </button>
+                                        </form>
+
+                                    </div>
+                                    <div class="modal-footer">
+
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
-                    </form>
+
                     </div>
                     <div style="padding-left: 30px;" class="signdiv col-md-6 ">
 
@@ -63,10 +115,10 @@
             </div>
             <div class="col-md-2">
             </div>
-        
-        
+
+
+        </div>
     </div>
-</div>
 </body>
 
 </html>

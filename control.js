@@ -67,6 +67,38 @@ control.get("/about", (req, res) => {
     res.render("about");
 })
 
+control.post("/updatePassword", (req, res) => {
+
+    if (req.body.password === req.body.repeatpassword) {
+        connection.query('SELECT * FROM account WHERE emailadd="' + req.body.email + '"', (err, results) => {
+            if (results[0] == null) {
+
+                res.send("Error email not found");
+
+            }
+            var md5Hash = md5(req.body.password + results[0].emailadd);
+
+
+            // // res.send(md5Hash.toString().substring(0, 20) + " " + results[0].password);
+            if (err) {
+                res.send("Error email not found");
+            }
+
+            var pass = md5Hash.toString().substring(0, 20)
+            connection.query('UPDATE  account SET password = "' + pass + '" WHERE emailadd="' + req.body.email + '"', (err, results) => {
+
+                // req.session.user.password = md5Hash.toString().substring(0, 20)
+                res.redirect("/login");
+
+            })
+        })
+    } else {
+        res.send("Password Mismatch");
+    }
+
+})
+
+
 control.get("/home", (req, res) => {
     res.locals.user = req.session.user;
     connection.query("SELECT * FROM apartment ", (err, results) => {
