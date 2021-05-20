@@ -1,140 +1,141 @@
-
-    <title>Apartments</title>
+<title>
+    Apartments</title>
 </head>
-<%- include ('partials/head.ejs') %>   
-<body class = "othercolorgrad">
-    <div class="container-fluid outercontain" >   
-        <div class="row">
-            <div class="col-md-12">
-                <div class="row">
-    <%- include ('partials/header.ejs') %>
+<%- include ('partials/head.ejs') %>
+
+    <body class="othercolorgrad">
+        <div class="container-fluid outercontain">
+            <div class="row">
+                <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md-12 aptholder">
-                            <h3 class="flavoredapartment">
-                                Apartments
-                            </h3>
-                            <p class="ezflavorapt">Browse and book for the apartments that you are looking for here
-                            </p>
-                            <img class="ezaptimg" alt="About Design" src="img/flathotel.png"/>
-                        </div>
+                        <%- include ('partials/header.ejs') %>
+                            <div class="row">
+                                <div class="col-md-12 aptholder">
+                                    <h3 class="flavoredapartment">
+                                        Apartments
+                                    </h3>
+                                    <p class="ezflavorapt">Browse and book for the apartments that you are looking for here
+                                    </p>
+                                    <img class="ezaptimg" alt="About Design" src="img/flathotel.png" />
+                                </div>
+                            </div>
                     </div>
-                </div>
-                <div class="aptbodydiv">
-                    <div class="dropdown">
-                        <select class="form-select apartmentsortdrop" aria-label="Default select example">
+                    <div class="aptbodydiv">
+                        <div class="dropdown">
+                            <select class="form-select apartmentsortdrop" aria-label="Default select example">
                             <option selected>Top Rating</option>
                             <option value="1">Price</option>
                         </select>
-                        <p class="apartmentsort">Sort by</p> 
-                    </div>
-                    <% for (x=0;x<data.length; x++){%>
-                        <div class="apartmentinfo">
-                            <img class="apartmentinfopic" alt="Apartment Picture" src="img/imgplace.png" />
+                            <p class="apartmentsort">Sort by</p>
+                        </div>
+                        <% for (x=0;x<data.length; x++){%>
+                            <div class="apartmentinfo">
+                                <img class="apartmentinfopic" alt="Apartment Picture" src="img/imgplace.png" />
 
-                            <div class="apttextholder">
-                                <p class="apartmenttext">
-                                    Address:
-                                    <%-data[x].city %> ,
-                                        <%-data[x].city %>
-                                            <%-data[x].baranggay %>
-                                </p>
-                                <p class="apartmenttext">
-                                    Room type:
-                                    <%-data[x].type %>
-                                </p>
-                                <p class="apartmenttext">
-                                    Capacity:
-                                    <%-data[x].capacity %>
-                                </p>
-                                <p class="apartmenttext">
-                                    Restriction:
-                                    <%-data[x].restriction %>
-                                </p>
-                                <p class="apartmenttext">
-                                    Price: Php
-                                    <%-data[x].price %>/ month
-                                </p>
-                            </div>
-                            <div class="aptstarandbutt">
-                                <img class="apartmentrating" alt="Apartment Rating" src="img/stars.png" />
-                                <a href="/apartmentDetails/<%-data[x].appID %>">
-                                    <button type="button" class="apartmentbutton">
+                                <div class="apttextholder">
+                                    <p class="apartmenttext">
+                                        Address:
+                                        <%-data[x].city %> ,
+                                            <%-data[x].city %>
+                                                <%-data[x].baranggay %>
+                                    </p>
+                                    <p class="apartmenttext">
+                                        Room type:
+                                        <%-data[x].type %>
+                                    </p>
+                                    <p class="apartmenttext">
+                                        Capacity:
+                                        <%-data[x].capacity %>
+                                    </p>
+                                    <p class="apartmenttext">
+                                        Restriction:
+                                        <%-data[x].restriction %>
+                                    </p>
+                                    <p class="apartmenttext">
+                                        Price: Php
+                                        <%-data[x].price %>/ month
+                                    </p>
+                                </div>
+                                <div class="aptstarandbutt">
+                                    <img class="apartmentrating" alt="Apartment Rating" src="img/stars.png" />
+                                    <a href="/apartmentDetails/<%-data[x].appID %>">
+                                        <button type="button" class="apartmentbutton">
                                         See more →
                                     </button>
-                                </a>
+                                    </a>
+                                    <%if(user.accType==2){%>
+                                        <a href="/deleteApartment/<%-data[x].appID %>">
+                                            <button type="button" class="apartmentbutton">
+                                            Delete
+                                        </button>
+                                        </a>
+
+                                        <%}%>
+                                </div>
                             </div>
-                        </div>
-                    <%}%>
-				
-                    <div class="apartsearch">
-                        <form role="form">
-                            <div class="form-group">
-                                
-                                <input type="search" class="apsearchbar" id="SearchFind" placeholder="Search for apartment"/>
-                                <img class="apmagnify" src="img/magnify.png">
-                                <button class="apsearchbutton">→</button>
-                            </div>
-                            <div>
-                                <p class="checklabel2">Room Type:</p>
-                            <div class="checkboxes">
-                                <label class="checklabel">
+                            <%}%>
+
+                                <div class="apartsearch">
+                                    <form role="form">
+                                        <div class="form-group">
+
+                                            <input type="search" class="apsearchbar" id="SearchFind" placeholder="Search for apartment" />
+                                            <img class="apmagnify" src="img/magnify.png">
+                                            <button class="apsearchbutton">→</button>
+                                        </div>
+                                        <div>
+                                            <p class="checklabel2">Room Type:</p>
+                                            <div class="checkboxes">
+                                                <label class="checklabel">
                                     <input type="checkbox" class="checkboxin" /> Shared
                                 </label>
-                            </div> 
-                            <div class="checkboxes">
-                                <label class="checklabel">
+                                            </div>
+                                            <div class="checkboxes">
+                                                <label class="checklabel">
                                     <input type="checkbox" class="checkboxin" /> Private
                                 </label>
-                            </div> 
-                            </div>
-                            <div>
-                                <p class="checklabel2">Capacity:</p>
-                                <input type="number" class="capacitynumber" id="apcapacity" min="1" placeholder="Enter capacity number"/>
-                            </div>
-                            <div>
-                                <p class="checklabel2">Restrictions:</p>
-                                <div class="checkboxes">
-                                    <label class="checklabel">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p class="checklabel2">Capacity:</p>
+                                            <input type="number" class="capacitynumber" id="apcapacity" min="1" placeholder="Enter capacity number" />
+                                        </div>
+                                        <div>
+                                            <p class="checklabel2">Restrictions:</p>
+                                            <div class="checkboxes">
+                                                <label class="checklabel">
                                         <input type="checkbox" class="checkboxin" /> Female Only
                                     </label>
-                            </div> 
-                            <div class="checkboxes">
-                                <label class="checklabel">
+                                            </div>
+                                            <div class="checkboxes">
+                                                <label class="checklabel">
                                     <input type="checkbox" class="checkboxin" /> Male Only
                                 </label>
-                            </div>
-                            <div>
-                                <p class="checklabel2">Rating:</p>
-                                <img class="apstars" alt="Apartment Rating" src="img/stars.png" />
+                                            </div>
+                                            <div>
+                                                <p class="checklabel2">Rating:</p>
+                                                <img class="apstars" alt="Apartment Rating" src="img/stars.png" />
 
-                            </div>
-                            <p class="checklabel2">Budget Estimate:</p>
-                            <div class="budgetholder">
-                                <input type="number" class="budgetinput" id="minbudget" min="1" placeholder="Minimum"/> to 
-                                <input type="number" class="budgetinput" id="maxbudget" min="1" placeholder="Maximum"/> 
-                            </div>
-                            <div>
-                                <button type="submit" class="apsearchbutton2">
+                                            </div>
+                                            <p class="checklabel2">Budget Estimate:</p>
+                                            <div class="budgetholder">
+                                                <input type="number" class="budgetinput" id="minbudget" min="1" placeholder="Minimum" /> to
+                                                <input type="number" class="budgetinput" id="maxbudget" min="1" placeholder="Maximum" />
+                                            </div>
+                                            <div>
+                                                <button type="submit" class="apsearchbutton2">
                                     Search
                                 </button>
-                            </div>
-                        </form>
+                                            </div>
+                                    </form>
+                                    </div>
+
+                                </div>
                     </div>
-                    <div class="nextpageholder">
-                        <button type="button" class="nextpagebutton">
-                            <<
-                        </button>
-                        <p class="pagenext">Page</p>
-                        <button type="button" class="nextpagebutton">
-                            >>
-                        </button>
-                    </div>
-		        </div>
-            </div>
-            <%- include ('partials/footer.ejs') %>
+                    <%- include ('partials/footer.ejs') %>
+                </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 
-</html>
+    </html>

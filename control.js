@@ -11,6 +11,7 @@ var nodemailer = require('nodemailer');
 const exphbs = require('express-handlebars');
 const fileUpload = require('express-fileupload');
 
+
 const upload = multer({ dest: 'public/' });
 
 var connection = mysql.createPool({
@@ -124,7 +125,7 @@ control.get("/requestList", (req, res) => {
                 }
 
             }
-            res.render("ownerApartmentRequests", { data: datas })
+            res.render("ownerApartmentRequests", { data: datas, appID: req.query.id })
         })
 
     })
@@ -160,7 +161,7 @@ control.get("/forumsDiscussion", (req, res) => {
         }
         // req.session.user.fname;
         datas[0] = results[0];
-        connection.query("SELECT * FROM account   ", (err, accounts) => {
+        connection.query("SELECT * FROM account WHERE accUID = '" + results[0].accUID + "'", (err, accounts) => {
             if (err) {
                 throw err;
             }
@@ -205,7 +206,6 @@ control.get("/forumsDiscussion", (req, res) => {
                         }
 
                     }
-                    console.log(datas[1].text, 1);
                     res.render("forumsDiscussions", { data: datas });
                 })
 
@@ -214,6 +214,16 @@ control.get("/forumsDiscussion", (req, res) => {
         })
 
     })
+})
+
+control.get("/deleteRequest", (req, res) => {
+    connection.query("DELETE FROM rentrequest WHERE appID = '" + req.query.id + "' AND tenantUID = '" + req.session.user.accUID + "' ", (err, results) => {
+        if (err) {
+            throw err;
+        }
+        res.redirect("/apartmentDetails/" + req.query.id);
+    })
+
 })
 
 control.post("/forumsAddcomment/:id", (req, res) => {
@@ -440,31 +450,36 @@ control.get("/requestedRents", (req, res) => {
     res.locals.user = req.session.user;
     var datas = new Array();
     var temp;
-    connection.query("SELECT * FROM rentrequest WHERE tenantUID='" + req.query.id + "'", (err, accounts) => {
+    connection.query("SELECT appID FROM rentrequest WHERE tenantUID='" + req.query.id + "'", (err, accounts) => {
         if (err) {
             throw err
         }
+        // console.log(accounts.length);
         connection.query("SELECT * FROM apartment", (err, results) => {
                 if (err) {
                     throw err
                 }
 
-                var z = accounts.length - 1;
-                for (x = 0; x < results.length; x++) {
-                    if (z >= 0) {
+                console.log(results.length);
+                var z;
+                for (z = 0; z < accounts.length; z++) {
+                    for (x = 0; x < results.length; x++) {
+
+                        // console.log(accounts[z]);
                         if (accounts[z].appID == results[x].appID) {
                             datas[z] = results[x];
                             accounts[z] = 'hello';
-                            x = 0;
-                            z--;
                             // y++;
                         }
-                    }
 
+
+                    }
                 }
 
+                console.log(datas.length);
 
                 res.render("tenantRequestedRents", { data: datas });
+                // res.send(datas);
                 // res.send(results);
             })
             //         // res.send(accounts);
@@ -508,9 +523,9 @@ control.get("/deleteApartment/:id", (req, res) => {
     })
 })
 
-control.get("/deleteRequest/:id", (req, res) => {
+control.get("/deleteRequest/:id/:userUID", (req, res) => {
     res.locals.user = req.session.user;
-    connection.query('DELETE FROM rentrequest WHERE appID="' + req.params.id + '" AND tenantUID = "' + req.session.user.accUID + '" ', (err, results) => {
+    connection.query('DELETE FROM rentrequest WHERE appID="' + req.params.id + '" AND tenantUID = "' + req.params.userUID + '" ', (err, results) => {
         if (err) {
             throw err;
         } else {
@@ -522,7 +537,7 @@ control.get("/deleteRequest/:id", (req, res) => {
 
 control.get("/editProfile", (req, res) => {
 
-    if (req.session.user.accType == 1) {
+    if (req.session.user.accType == 1 || req.session.user.accType == 2) {
         res.redirect("/editOwnerprofile=" + req.session.user.fname + "." + req.session.user.lname);
     } else {
         res.redirect("/editTenantprofile=" + req.session.user.fname + "." + req.session.user.lname);
@@ -568,26 +583,26 @@ control.post("/editOwner/:id", (req, res) => {
     connection.query('UPDATE `account` SET `image`="' + req.files.image.name + '", `fname`="' + req.body.fname + '",`lname`="' + req.body.lname + '",`gender`="' + req.body.gender + '",`contact`="' + req.body.contact + '",`details`="' + req.body.details + '" WHERE accUID="' + req.params.id + '"', (err, results) => {
         if (err) {
             throw err;
-        } else {
-            // req.session.user.fname;
-            req.session.user.image = req.files.image.name;
-            req.session.user.accUID = req.params.id;
-            req.session.user.fname = req.body.fname;
-            req.session.user.lname = req.body.lname;
-            req.session.user.gender = req.body.gender;
-            req.session.user.contact = req.body.contact;
-            res.locals.user = req.session.user;
-
-            sampleFile = req.files.image;
-            uploadPath = __dirname + '/public/img/profileImg' + sampleFile.name;
-
-            sampleFile.mv(uploadPath, function(err) {
-                if (err) return res.status(500).send(err);
-
-                console.log(sampleFile);
-            })
-            res.redirect("/profile");
         }
+        // req.session.user.fname;
+        req.session.user.image = req.files.image.name;
+        req.session.user.accUID = req.params.id;
+        req.session.user.fname = req.body.fname;
+        req.session.user.lname = req.body.lname;
+        req.session.user.gender = req.body.gender;
+        req.session.user.contact = req.body.contact;
+        res.locals.user = req.session.user;
+
+        sampleFile = req.files.image;
+        uploadPath = __dirname + '/public/img/profileImg/' + sampleFile.name;
+
+        sampleFile.mv(uploadPath, function(err) {
+            if (err) return res.status(500).send(err);
+
+            console.log(sampleFile);
+        })
+        res.redirect("/profile");
+
     })
 })
 
@@ -616,7 +631,7 @@ control.get("/profile=:username", (req, res) => {
 control.get("/profile", (req, res) => {
 
 
-    if (req.session.user.accType == 1) {
+    if (req.session.user.accType == 1 || req.session.user.accType == 2) {
         res.redirect("/Ownerprofile=" + req.session.user.fname + "." + req.session.user.lname);
     } else {
         res.redirect("/profile=" + req.session.user.fname + "." + req.session.user.lname);
@@ -772,7 +787,7 @@ control.post('/upload', (req, res) => {
         // res.render('zsample', { data.picture: req.files.avatar.name });
         res.redirect("/sample");
 
-    
+
     })
     sampleFile = req.files.avatar;
     uploadPath = __dirname + '/public/img/profileImg' + sampleFile.name;
@@ -797,5 +812,31 @@ generateCode = () => {
     return generate;
 }
 
+control.post("/emailSends", (req, res) => {
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'arnanplanco@gmail.com',
+            pass: 'reginleaf5254'
+        }
+    });
+
+    var mailOptions = {
+        from: 'arnanplanco@gmail.com',
+        to: 'plancoarnan@gmail.com',
+        subject: 'Sending Email using Node.js',
+        text: 'testing'
+    };
+
+    transporter.sendMail(mailOptions, function(error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
+
+
+})
 
 control.listen(3000);

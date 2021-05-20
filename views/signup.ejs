@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<link rel="stylesheet" type="text/css" href="css/styles1.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-	<link rel="icon" href="img/EZARclean.png">
-	<title>Sign Up</title>	
+    <link rel="stylesheet" type="text/css" href="css/styles1.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/EZARclean.png">
+    <title>Sign Up</title>
 </head>
 
 <body style="background-color: black;">
@@ -28,23 +29,17 @@
                             Create Your Account
                         </h3>
                         <form class="formpadding" role="form" action="/signup" method="POST">
-                            
+
                             <div class="form-group">
                                 <label class="signlabels" for="First Name">
                                     First Name
                                 </label>
                                 <input type="text" id="fname-sign" class="inputterstyleS form-control" name="fname" />
                             </div>
+
                             <div class="form-group">
 
-                                <label class="signlabels" for="Middle Name">
-                                    Middle Name
-                                </label>
-                                <input type="text" class="inputterstyleS form-control" id="mname-sign" />
-                            </div>
-                            <div class="form-group">
-
-                                <label  class="signlabels" for="Last Name">
+                                <label class="signlabels" for="Last Name">
                                     Last Name
                                 </label>
                                 <input type="text" class="inputterstyleS form-control" name="lname" />
@@ -60,17 +55,17 @@
                                 <label class="signlabels" for="Middle Name">
                                     Birth Date
                                 </label>
-                                    <input type="date" class="inputterstyleS form-control" name="birthdate" />
-                                </div>
+                                <input type="date" class="inputterstyleS form-control" name="birthdate" />
+                            </div>
                             <div>
-                                <select name="acctype" class="form-select signlabels selectorstyle" style="float: left;" aria-label="Default select example">
+                                <select name="acctype" class="form-select signlabels selectorstyle" style="float: left; color: black;" aria-label="Default select example">
                                     <option selected>Account Type</option>
                                     <option value="0">Tenant</option>
                                     <option value="1">Owner</option>
                                 </select>
                             </div>
                             <div>
-                                <select name="gender" class="form-select signlabels selectorstyle" style="margin-left:50px;"aria-label="Default select example">
+                                <select name="gender" class="form-select signlabels selectorstyle" style="margin-left:50px;color: black;" aria-label="Default select example">
                                     <option selected>Sex</option>
                                     <option value="male" >Male</option>
                                     <option value="female">Female</option>
@@ -94,7 +89,7 @@
                                 <input type="text" class="inputterstyleS form-control" name="repeatpass">
 
                             </div>
-                                <button type="submit" class=" regbuttonstyle btn btn-primary">
+                            <button type="submit" class=" regbuttonstyle btn btn-primary">
                                     Sign-Up →
 						        </button>
                         </form>
