@@ -69,40 +69,16 @@
 						<h3 class="featapp">
 							Featured Apartments
 						</h3>
-					<div class="row easyrow2">
-						<% for (x=0;x<data.length; x++){%>
+					
+						<% for (x=0;x<2; x++){%>
+						<div class="row easyrow2">
 								<img class="underimage4" alt="Apartment1" src="img/imgplace.png"/>
-								<img class="underimage5" alt="Apartment2" src="img/imgplace.png"/>
-								<img class="underimage6" alt="Apartment3" src="img/imgplace.png"/>
 
 							<div class="undereasy4">
 								<img class="starrating" alt="Star Rating" src="img/stars.png"/>
 								<p class="undertext2">
 									Address: <%-data[x].city%>, <%-data[x].street%> <%-data[x].baranggay%><br>
 									Room type: Shared <br>
-									Restrictions: Females only
-								</p>
-								<button type="button" class="underlearn3">
-									View
-								</button>
-							</div>
-							
-							<div class="undereasy5">
-								<img class="starrating" alt="Star Rating" src="img/stars.png" />
-								<p class="undertext2">
-									Address: <%-data[x].city%>, <%-data[x].street%> <%-data[x].baranggay%> <br>
-									Room type: Single <br>
-									Restrictions: No Pets Allowed
-								</p>
-								<button type="button" class="underlearn3">
-									View
-								</button>
-							</div>
-							<div class="undereasy6">
-								<img class="starrating" alt="Star Rating" src="img/stars.png" />
-								<p class="undertext2">
-									Address: <%-data[x].city%>, <%-data[x].street%> <%-data[x].baranggay%> <br>
-									Room type: Studio <br>
 									Restrictions: Females only
 								</p>
 								<button type="button" class="underlearn3">

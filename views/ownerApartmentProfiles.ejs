@@ -76,23 +76,23 @@
 						<div class="apartmentinfoprof2">
 							<div> 
                             
-								<img class="apartmentinfopichis" alt="Apartment Picture" src="img/imgplace.png" />
+								<img class="apartmentinfopichis" alt="Apartment Picture" src="img/<%-data[x].image1 %> " />
 								
 								<div class="apttextholderhis">
 									<p class="apartmenttexthis">
-										Address: Loren ipsum loren ipsum
+										Address: <%-data[x].city %> , <%-data[x].street %> 
 									</p>
 									<p class="apartmenttexthis">
-										Room type: Shared 
+										Room type: <%-data[x].type %> 
 									</p>
 									<p class="apartmenttexthis">
-										Capacity: 2
+										Capacity: <%-data[x].capacity %> 
 									</p>
 									<p class="apartmenttexthis">
-										Restriction: Female only
+										Restriction: <%-data[x].restriction %> 
 									</p>
 									<p class="apartmenttexthis">
-										Price: Php 5,000/ month
+										Price: Php <%-data[x].price %> / month
 									</p>
 									<p class="apartmenttexttenant">
 										Tenants:
@@ -103,18 +103,18 @@
 							</div>
 							<div class="aptstarandbutthis3">
 								<img class="apartmentratinghis" alt="Apartment Rating" src="img/stars.png" />
-								<button type="button" class="apartmentbuttonhis">
+								<a href="/apartmentDetails/<%-data[x].appID %>"><button type="button" class="apartmentbuttonhis">
 									See more →
-								</button>
+								</button></a>
 							</div>
 						</div>
-
+						<%}%>
 					</div>
-					<a href="/apartmentDetails/<%-data[x].appID %>">
+					<a href="/apartmentDetails/">
 					<button class="profviewallbutt">View All</button>
 					</a>
 				
-                <%}%>
+                
                 </div>
                 
 			</div>

@@ -14,7 +14,44 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css" />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
     <title>Google Maps Clone</title>
+    <style>
+
+      .coordinates {
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      position: absolute;
+      bottom: 40px;
+      left: 10px;
+      padding: 5px 10px;
+      margin: 0;
+      font-size: 11px;
+      line-height: 18px;
+      border-radius: 3px;
+      display: none;
+      
+      }
+
+      .mapboxgl-popup {
+        max-width: 200px;
+        }
+        .mapboxgl-popup-content {
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+        }
+      </style>
+      <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+      <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+      type="text/css"
+      />
+      <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+      <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
 </head>
 
 <body class = "othercolorgrad">
@@ -26,7 +63,7 @@
                     <div class="row">
                         <div class="col-md-12 mapholder">
                             <h1 class="flavoredforum" style="text-align: center;">
-                                Maps
+                                Maps<%=apartments.length%>
                             </h1>
                             <!-- <p class="ezflavorforum">See all discussions and share your ideas and expressions here
                             </p> -->
@@ -42,7 +79,7 @@
                             var map = new mapboxgl.Map({
                                 container: 'map',
                                 style: 'mapbox://styles/mapbox/streets-v11',
-                                center: [123.885437, 10.315699],
+                                center: [123.8985231,10.3267496],
                                 zoom: 12
                             });
 
@@ -68,6 +105,55 @@
                                     trackUserLocation: true
                                 })
                             );
+
+                            // var marker = new mapboxgl.Marker({
+                            // draggable: true
+                            // })
+                            // .setLngLat([123.918434,10.311223])
+                            // .addTo(map);
+                            
+                            var x= 0;
+                            var applength = <%=apartments.length%>
+                            let apps = []
+                            var data = new Array()
+                            for(x=0; x< applength; x++){
+                                data[x]={
+                                'type': 'Feature',
+                                    'geometry': {
+                                    'type': 'Point',
+                                    'coordinates': [123.918434+(x*0.1),10.311223]
+                                    },
+                                    'properties': {
+                                    'title': 'Mapbox' ,
+                                    'description': 'Washington, D.C. ' 
+                                    }
+                                }
+                            }
+                            var geojson = {
+                            'type': 'FeatureCollection',
+                            'features': data
+                            };
+
+                            geojson.features.forEach(function (marker) {
+                                // create a HTML element for each feature
+                                var el = document.createElement('div');
+                                el.className = 'marker';
+                                
+                                // make a marker for each feature and add it to the map
+                                new mapboxgl.Marker(el)
+                                .setLngLat(marker.geometry.coordinates)
+                                    .setPopup(
+                                    new mapboxgl.Popup({ offset: 25 }) // add popups
+                                        .setHTML(
+                                        '<h3>' +
+                                        marker.properties.title +
+                                        '</h3><p>' +
+                                        marker.properties.description +
+                                        '</p>'
+                                        )
+                                    )
+                                .addTo(map);
+                                });
                         </script>
                     </div>
 
