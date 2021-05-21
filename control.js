@@ -383,7 +383,15 @@ control.get("/forums/posts", (req, res) => {
 
 control.get("/map", (req, res) => {
     res.locals.user = req.session.user;
-    res.render("map");
+    connection.query("SELECT * FROM apartment ", (err, results) => {
+        if (err) {
+            throw err;
+        }
+
+        res.render("map",{apartments:results});
+    })
+
+    
 })
 
 control.get("/forums", (req, res) => {
