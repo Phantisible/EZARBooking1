@@ -286,6 +286,8 @@ control.get("/commentDelete/:id/:text", (req, res) => {
 
 })
 
+control.get("/forums/findRoommate")
+
 control.get("/forums/findRoommate", (req, res) => {
     res.locals.user = req.session.user;
 
@@ -388,10 +390,10 @@ control.get("/map", (req, res) => {
             throw err;
         }
 
-        res.render("map",{apartments:results});
+        res.render("map", { apartments: results });
     })
 
-    
+
 })
 
 control.get("/forums", (req, res) => {
@@ -595,7 +597,7 @@ control.get("/editOwnerprofile=:username", (req, res) => {
 control.get("/editTenantProfile=:username", (req, res) => {
 
     res.locals.user = req.session.user;
-    res.render("ownerProfileEdit");
+    res.render("tenantProfileEdit");
 
 })
 
