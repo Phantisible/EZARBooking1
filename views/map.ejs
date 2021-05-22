@@ -121,10 +121,10 @@
                             'type': 'Feature',
                             'geometry': {
                                 'type': 'Point',
-                                'coordinates': [123.918434 + (x * 0.01), 10.311223 + (x * 0.01)]
+                                'coordinates': ['<%=apartments[z ].locationX%>', '<%=apartments[z ].locationY%>']
                             },
                             'properties': {
-                                'appID': '<%=apartments[x].appID%>',
+                                'appID': '<%=apartments[z].appID%>',
                                 'title': x + '<%=apartments[z ].city%>, <%=apartments[z].street%>  <%=apartments[z].baranggay%> ',
                                 'type': '<%=apartments[z].type%>',
                                 'capacity': '<%=apartments[z].capacity%>  ',
