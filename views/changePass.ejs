@@ -1,0 +1,94 @@
+<title>Profile Edit</title>
+</head>
+<%- include ('partials/head.ejs') %>
+
+    <body class="othercolorgrad">
+        <div class="container-fluid outercontain">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <%- include ('partials/header.ejs') %>
+
+                            <div>
+                                <div class="container-fluid">
+                                    <div class="row  userprofholderedit">
+                                        <div class="optionholder">
+
+                                            <div class="optiondiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/iconperson.png" />
+                                                <a href="/profile" class="optiontext">
+                                                    <p class="optiontext">
+                                                        Profile Information
+                                                    </p>
+                                                </a>
+
+                                            </div>
+                                            <div class="optiondiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/folder.png" />
+                                                <a href="/apartmentProfiles/<%-user.accUID%>" class="optiontext">
+                                       Apartment Profile
+                                    </a>
+                                            </div>
+                                            <div class="optiondiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/cog.png" />
+                                                <a href="#" class="optiontext" style="color: black;">
+                                        Settings
+                                    </a>
+                                            </div>
+                                            <div class="optionlogdiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/ExitWhite.png" />
+                                                <a href="/login" class="optiontext">
+                                        Log Out
+                                    </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="userholderedit4">
+                                            <h3 class="tenanttext">
+                                                Change Password
+                                            </h3>
+                                            <img class="userprofstyle" alt="Tenant Profile Image" src="img/profileImg/<%-user.image%>" />
+                                            <img class="pencil" alt="Edit Image" src="img/pencil.png">
+                                            <div class="tenantinfoeditdiv">
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <form role="form" action="/changePass/<%-user.accUID%>" method="POST">
+                                                                <div class="form-group">
+                                                                    <label class="tenantinfolabels" for="UserPass">
+                                                                        Old Password
+                                                                    </label>
+                                                                    <input class="tenantinfoinput" type="Password" class="form-control" name="password" />
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="tenantinfolabels" for="UserNewPass">
+                                                                        New Password
+                                                                    </label>
+                                                                    <input class="tenantinfoinput" type="Password" class="form-control" name="newpass" />
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="tenantinfolabels" for="UserNewPass">
+                                                                        Confirm New Password
+                                                                    </label>
+                                                                    <input class="tenantinfoinput" type="Password" class="form-control" name="repeatpass" />
+                                                                </div>
+                                                                <button type="submit" class="tenanteditbutton2">Save</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <%- include ('partials/footer.ejs') %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    </html>

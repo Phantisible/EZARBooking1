@@ -1,73 +1,75 @@
 <title>Owner Profile</title>
 </head>
-<%- include ('partials/head.ejs') %>   
-<body class = "othercolorgrad">
-    <div class="container-fluid outercontain" >   
-        <div class="row">
-            <div class="col-md-12">
-                <div class="row">
-    <%- include ('partials/header.ejs') %>
+<%- include ('partials/head.ejs') %>
 
-                <div>
-                    <div class="container-fluid">
-                        <div class="row userprofholder">                            
-                            <div class="optionholder">                                
-                                <div class="optiondiv" >
-                                    <img class="optionimg" alt="Profile Information" src="img/iconperson.png" />
-                                    <a href="/profile" class="optiontext">
+    <body class="othercolorgrad">
+        <div class="container-fluid outercontain">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <%- include ('partials/header.ejs') %>
 
+                            <div>
+                                <div class="container-fluid">
+                                    <div class="row userprofholder">
+                                        <div class="optionholder">
+                                            <div class="optiondiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/iconperson.png" />
+                                                <a href="/profile" class="optiontext">
+
+                                                </a>
+                                                <p class="optiontext" style="color: black;">
+                                                    Profile Information
+                                                </p>
+                                            </div>
+                                            <div class="optiondiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/folder.png" />
+                                                <a href="/apartmentProfiles/<%-user.accUID%>" class="optiontext">
+                                       Apartment Profile
                                     </a>
-                                    <p class="optiontext"style="color: black;">
-                                        Profile Information
-                                    </p>
-                                </div>
-                                <div class="optiondiv">
-                                    <img class="optionimg" alt="Profile Information" src="img/folder.png" />
-                                    <a href="/apartmentProfiles/<%-user.accUID%>" class="optiontext">
-                                        Owned Apartments
-                                    </a>
-                                </div>
-                                <div class="optiondiv">
-                                    <img class="optionimg" alt="Profile Information" src="img/cog.png" />
-                                    <a href="#" class="optiontext">
+                                            </div>
+                                            <div class="optiondiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/cog.png" />
+                                                <a href="/settings" class="optiontext">
                                         Settings
                                     </a>
-                                </div>
-                                <div class="optionlogdiv">
-                                    <img class="optionimg" alt="Profile Information" src="img/ExitWhite.png" />
-                                    <a href="/login"  class="optiontext">
+                                            </div>
+                                            <div class="optionlogdiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/ExitWhite.png" />
+                                                <a href="/login" class="optiontext">
                                         Log Out
                                     </a>
+                                            </div>
+                                        </div>
+                                        <div class="userholder">
+                                            <h3 class="tenanttext">
+                                                Owner Profile
+                                            </h3>
+                                            <img class="userprofstyle" alt="Owner Profile Image" src="img/profileImg/<%-user.image%>" />
+                                            <a href="/editProfile"><button class="tenantbutton">Edit</button></a>
+                                            <div class="tenantinfodiv">
+                                                <p class="tenantinfo">
+                                                    Name:
+                                                    <%-user.fname%>
+                                                        <%-user.lname%><br> Birth date:
+                                                            <%-user.birthdate%> <br> Gender:
+                                                                <%-user.gender%> <br> Email:
+                                                                    <%-user.emailadd%> <br> Contact number:
+                                                                        <%-user.contact%> <br> About: <br> <br> “loren impson shurpangs churpangs”
+
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
-                            <div class="userholder">
-                                <h3 class="tenanttext">
-                                    Owner Profile
-                                </h3>
-                                <img class="userprofstyle" alt="Owner Profile Image" src="img/profileImg/<%-user.image%>" />
-                                <a href="/editProfile"><button class="tenantbutton">Edit</button></a>
-                                <div class="tenantinfodiv">
-                                    <p class="tenantinfo">
-                                        Name: <%-user.fname%> <%-user.lname%><br>
-                                        Birth date: <%-user.birthdate%> <br>
-                                        Gender: <%-user.gender%>  <br>     
-                                        Email: <%-user.emailadd%> <br>            
-                                        Contact number:  <%-user.contact%>   <br>       
-                                         About:  <br>    <br>    “loren impson shurpangs churpangs”         
-                                                               
-                                    </p>
-                            </div>
-                            </div>
-                            
-                        </div>
+
+                            <%- include ('partials/footer.ejs') %>
                     </div>
                 </div>
-
-                <%- include ('partials/footer.ejs') %> 
             </div>
         </div>
-    </div>
-</div>
-</body>
+    </body>
 
-</html>
+    </html>

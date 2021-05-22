@@ -20,74 +20,8 @@
                                 </div>
                             </div>
                     </div>
-                    <!-- <div class="headline">
-    <div class="forum">
-            <div class="headlinebody" style="color: white;">
-                <h1>FORUMS</h1>
-                <i><h5>See all discussions and share your ideas and expressions here</h5></i>
-                <img class="messageicon"src="img/messageicon.png">
-            </div>
-            
-    </div>
-    <div class="searchtag">
-        <div class="search-container" style="margin:10px 0 50px 0;">
-            <form>
-                <div class="input-container" style="border: 1px solid black; font-size: 20px;">
-                    
-                    <input class="input-field" type="text" placeholder="Search for a tag" name="searchforatag">
-                    <i class="fa fa-search"style="font-size: 30px;margin-top:10px;"></i>
-                    
-                    <a href="#" class="" style="color: white;font-size: 30px;margin:0px 0 0 10px;">
-                        <button type="submit" class="" style="background-color: rgb(219,193,50);">
-                            <i class="fas fa-arrow-right" style="width: 50px;"></i>
-                        </button>
-                     </a>
-                </div>
-            </form>
-        </div>
-        
-            <div class="threads">
-                <h2 style="text-align:center;">Threads</h2>
-            
-                <p class="breakAll narrow">
-                    
-                        <a href="#allThreads" class="nav-link nav-link-faded has-icon">#All Threads</a>
-                        <a href="/forums/findRoommate" class="nav-link nav-link-faded has-icon">#Find a Roommate</a>
-                        <a href="#roomsReview" class="nav-link nav-link-faded has-icon">#Rooms Review</a>
-                        <a href="/forums/posts/<%-user.accUID%>" class="nav-link nav-link-faded has-icon">#Own Posts</a>
-                   
-                </p>
-            </div>
-            <div class="top3posts" style="margin-top: 50px;">
-                <h2 style="text-align:center;">Top 3 Posts</h2>
-                <% for(x=0; x<3; x++){ %>
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <b><h3> <%-data[x].fname%> <%-data[x].lname%></h3></b>
-                        </div>
-                        <div class="col-sm-4">
-                            <h3>1/11/2021</h3>
-                        </div>
-                    </div>
-                     
-                        
-                    <p class="discussiontittle"><%-data[x].name%></p>
-                    <p class="text-secondary" style="margin-left:20px;">
-                        <%-data[x].text%>
-                    </p>
 
-                    <p style="font-size: 20px; margin-right: 4%; margin-bottom: 20px;">
-                        <span style="margin: 10px 20px 0 0;"><b><i class="fa fa-arrow-up" aria-hidden="true"></i></b> 365 </span>
-                        <span><b><i class="fa fa-arrow-down" aria-hidden="true"></i></b> 38 </span>
-                    </p>    
-                    
-                <% } %>
-            </div>
-      
-                            
-    </div>
-</div> -->
-                    <div class="forumbody" style="border: 1px solid white">
+                    <div class="forumbody">
                         <div class="forumlist">
                             <div>
                                 <img class="forumImage" src="img/profileImg/<%-user.image%>">
@@ -138,7 +72,7 @@
                             <div class="allDiscussionList" id="allThreads">
                                 <% for(x=0; x<data.length; x++){ %>
                                     <div class="discussionlist">
-                                        <a href="#"><img src="img/profileImg/<%-data[x].image%>" class="discussion-image"  style="height: 150px;
+                                        <a href="#"><img src="img/profileImg/<%-data[x].accImage%>" class="discussion-image"  style="height: 150px;
                         width: 150px;"alt="No User Image" /></a>
                                         <div class="bubble">
                                             <div class="discussion-body" style="padding-left: 100px;">
@@ -146,7 +80,7 @@
                                                 <div class="row">
                                                     <div class="col-sm-8">
                                                         <%-data[x].type%>
-                                                            <p> <b><h3> <%-data[x].fname%> <%-data[x].lname%></h3></b></p>
+                                                            <p> <b><h3> <%-data[x].fname%> <%-data[x].lname%><% var accT = data[x].accType%><%if(accT==2){%>(Admin)<%}%></h3></b></p>
                                                             <p class="discussiontittle">
                                                                 <%-data[x].name%>
                                                             </p>
@@ -228,30 +162,32 @@
                                             </div>
                                             <div class="top3posts" style="margin-top: 50px;">
                                                 <h2 style="text-align:center;">Top 3 Posts</h2>
-                                                <% for(x=0; x<3; x++){ %>
-                                                    <div class="row">
-                                                        <div class="col-sm-8">
-                                                            <b><h3> <%-data[x].fname%> <%-data[x].lname%></h3></b>
-                                                        </div>
-                                                        <div class="col-sm-4">
-                                                            <h3>1/11/2021</h3>
-                                                        </div>
-                                                    </div>
+                                                <% var y = data.length %>
+                                                    <% if(y>=3){y=3}else{y=data.length} %>
+                                                        <% for(x=0; x<y; x++){ %>
+                                                            <div class="row">
+                                                                <div class="col-sm-8">
+                                                                    <b><h3> <%-data[x].fname%> <%-data[x].lname%></h3></b>
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                    <h3>1/11/2021</h3>
+                                                                </div>
+                                                            </div>
 
 
-                                                    <p class="discussiontittle">
-                                                        <%-data[x].name%>
-                                                    </p>
-                                                    <p class="text-secondary" style="margin-left:20px;">
-                                                        <!-- <%-data[x].text%> -->
-                                                    </p>
+                                                            <p class="discussiontittle">
+                                                                <%-data[x].name%>
+                                                            </p>
+                                                            <p class="text-secondary" style="margin-left:20px;">
+                                                                <!-- <%-data[x].text%> -->
+                                                            </p>
 
-                                                    <p style="font-size: 20px; margin-right: 4%; margin-bottom: 20px;">
-                                                        <span style="margin: 10px 20px 0 0;"><b><i class="fa fa-arrow-up" aria-hidden="true"></i></b> 365 </span>
-                                                        <span><b><i class="fa fa-arrow-down" aria-hidden="true"></i></b> 38 </span>
-                                                    </p>
+                                                            <p style="font-size: 20px; margin-right: 4%; margin-bottom: 20px;">
+                                                                <span style="margin: 10px 20px 0 0;"><b><i class="fa fa-arrow-up" aria-hidden="true"></i></b> 365 </span>
+                                                                <span><b><i class="fa fa-arrow-down" aria-hidden="true"></i></b> 38 </span>
+                                                            </p>
 
-                                                    <% } %>
+                                                            <% } %>
                                             </div>
                                         </div>
                             </div>

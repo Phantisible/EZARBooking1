@@ -3,6 +3,21 @@
 <%- include ('partials/head.ejs') %>
 
     <body class="othercolorgrad">
+        <style type="text/css">
+            #info {
+                display: block;
+                position: relative;
+                margin: 0px auto;
+                width: 50%;
+                padding: 10px;
+                border: none;
+                border-radius: 3px;
+                font-size: 12px;
+                text-align: center;
+                color: #222;
+                background: #fff;
+            }
+        </style>
         <div class="container-fluid outercontain">
             <div class="row">
                 <div class="col-md-12">
@@ -11,7 +26,7 @@
 
                             <div>
                                 <div class="container-fluid">
-                                    <div class="row  userprofholderedit">
+                                    <div class="row  userprofholderedit" style="height: 2400px;">
                                         <div class="optionholder">
 
                                             <div class="optiondiv">
@@ -31,7 +46,7 @@
                                             </div>
                                             <div class="optiondiv">
                                                 <img class="optionimg" alt="Profile Information" src="img/cog.png" />
-                                                <a href="#" class="optiontext">
+                                                <a href="/settings" class="optiontext">
                                         Settings
                                     </a>
                                             </div>
@@ -43,7 +58,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="userholderedit">
+                                        <div class="userholderedit" style="height: 2000px;">
                                             <h3 class="tenanttext">
                                                 Add Apartment
                                             </h3>
@@ -148,8 +163,40 @@
                                                                 </label>
                                                                     <input class="tenantinfoinput" type="text" class="form-control" name="description" style="height: 200px;" required/>
                                                                 </div>
-                                                                <input type="hidden" name="locationX" />
-                                                                <input type="hidden" name="locationY" />
+                                                                <div class="form-group">
+                                                                    <label class="tenantinfolabels" for="UserContactNumber">
+                                                                    Coordinate Longitude
+                                                                </label>
+                                                                    <input class="tenantinfoinput" type="text" class="form-control" name="locationLong" required/>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="tenantinfolabels" for="UserContactNumber">
+                                                                    Coordinate Latitude
+                                                                </label>
+                                                                    <input class="tenantinfoinput" type="text" class="form-control" name="locationLat" required/>
+                                                                </div>
+                                                                <div id="map" style="height: 500px;"></div>
+                                                                <pre id="info"></pre>
+                                                                <script>
+                                                                    mapboxgl.accessToken = 'pk.eyJ1IjoicmF5bHh5bGVtIiwiYSI6ImNrMHphdmZmNzBmdzQzb293M3Z5Zm9samYifQ.keAuGVm8Orve1iPn6o7wVQ';
+                                                                    var map = new mapboxgl.Map({
+                                                                        container: 'map',
+                                                                        style: 'mapbox://styles/mapbox/streets-v11',
+                                                                        center: [123.8985231, 10.3267496],
+                                                                        zoom: 12
+                                                                    });
+
+                                                                    map.on('style.load', function() {
+                                                                        map.on('click', function(e) {
+                                                                            var coordinates = e.lngLat;
+
+                                                                            new mapboxgl.Popup()
+                                                                                .setLngLat(coordinates)
+                                                                                .setHTML('you clicked here: <br/>' + coordinates)
+                                                                                .addTo(map);
+                                                                        });
+                                                                    });
+                                                                </script>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -24,15 +24,27 @@
                                                 </p>
                                             </div>
                                             <div class="optiondiv">
-                                                <img class="optionimg" alt="Profile Information" src="img/folder.png" />
-                                                <a href="/apartmentProfiles/<%-user.accUID%>" class="optiontext">
-                                        Apartment History
+                                                <img class="optionimg" alt="Profile Information" src="img/cog.png" />
+                                                <a href="/adminApartments" class="optiontext">
+                                       Manage Apartments
                                     </a>
                                             </div>
                                             <div class="optiondiv">
                                                 <img class="optionimg" alt="Profile Information" src="img/cog.png" />
-                                                <a href="/settings" class="optiontext">
-                                        Settings
+                                                <a href="/adminAccounts" class="optiontext">
+                                        Manage Accounts
+                                    </a>
+                                            </div>
+                                            <div class="optiondiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/cog.png" />
+                                                <a href="/adminAccounts" class="optiontext">
+                                        Manage Admin Accounts
+                                    </a>
+                                            </div>
+                                            <div class="optiondiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/cog.png" />
+                                                <a href="/administrators" class="optiontext">
+                                       Manage Admins
                                     </a>
                                             </div>
                                             <div class="optionlogdiv">
@@ -45,16 +57,15 @@
 
                                         <div class="userholderedit">
                                             <h3 class="tenanttext">
-                                                Profile Edit:
-                                                <%-user.fname%>
+                                                Admin Add Account
                                             </h3>
-                                            <img class="userprofstyle" onclick="document.getElementById('tenantmodal')" alt="Tenant Profile Image" src="img/profileImg/<%-user.image%>" />
+                                            <img class="userprofstyle" onclick="document.getElementById('tenantmodal')" alt="Tenant Profile Image" src="img/profileImg/ppholder.png" />
                                             <img class="pencil" alt="Edit Image" src="img/pencil.png">
                                             <div class="tenantinfoeditdiv">
                                                 <div class="container-fluid">
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <form role="form" enctype="multipart/form-data" method="POST" action="/editOwner/<%-user.accUID%>">
+                                                            <form role="form" enctype="multipart/form-data" method="POST" action="/addAdmin">
                                                                 <div class="form-group">
                                                                     <label class="tenantinfolabels" for="UserMName">
                                                                 Account Picture
@@ -65,14 +76,26 @@
                                                                     <label class="tenantinfolabels" for="UserMName">
                                                                 First Name
                                                             </label>
-                                                                    <input class="tenantinfoinput" type="text" class="form-control" name="fname" value="<%=user.fname%>" id="UserFName" required/>
+                                                                    <input class="tenantinfoinput" type="text" class="form-control" name="fname" id="UserFName" required/>
                                                                 </div>
 
                                                                 <div class="form-group">
                                                                     <label class="tenantinfolabels" for="UserLName">
                                                             Last Name
                                                         </label>
-                                                                    <input class="tenantinfoinput" type="text" class="form-control" value="<%=user.lname%>" name="lname" required/>
+                                                                    <input class="tenantinfoinput" type="text" class="form-control" name="lname" required/>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="tenantinfolabels" for="UserLName">
+                                                            Contact Number
+                                                        </label>
+                                                                    <input class="tenantinfoinput" type="text" class="form-control" name="contact" required/>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="tenantinfolabels" for="UserLName">
+                                                            Birth Date
+                                                        </label>
+                                                                    <input class="tenantinfoinput" type="date" class="form-control" name="bdate" required/>
                                                                 </div>
                                                                 <div>
                                                                     <label class="tenantinfolabels" for="UserEmail">
@@ -87,17 +110,17 @@
 
                                                                 <div class="form-group">
                                                                     <label class="tenantinfolabels" for="UserContactNumber">
-                                                            Contact Number
+                                                            Email Address
                                                         </label>
-                                                                    <input class="tenantinfoinput" type="text" class="form-control" value="<%=user.contact%>" name="contact" required />
+                                                                    <input class="tenantinfoinput" type="text" class="form-control" name="email" required />
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label class="tenantinfolabels" for="UserMessage">
-                                                            About Me:
+                                                                    <label class="tenantinfolabels" for="UserContactNumber">
+                                                            Password
                                                         </label>
-                                                                    <textarea class="tenantaboutme" type="text" class="form-control" value="<%=user.details%>" name="details" required />
-                                                                    </textarea>
+                                                                    <input class="tenantinfoinput" type="text" class="form-control" name="password" required />
                                                                 </div>
+
                                                                 <button type="submit" class="tenanteditbutton">Save</button>
                                                             </form>
                                                         </div>

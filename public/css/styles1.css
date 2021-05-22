@@ -59,12 +59,13 @@
 .signtitle2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
-    padding-top: 30px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     padding-left: 20px;
     color: white;
     letter-spacing: 2px;
     font-weight: 700;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .logtitle {
@@ -100,7 +101,7 @@
 
 .signlabels {
     font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 500;
     color: white;
 }
@@ -149,9 +150,12 @@
 
 .regbuttonstyle {
     font-family: 'Montserrat', sans-serif;
-    min-width: 100px;
-    margin-top: 20px;
-    min-height: 40px;
+    padding: 8px 30px 8px 30px;
+    background-color: #ECCC1C;
+    border-radius: 25px;
+    color: white;
+    border: none;
+    margin-top: -5px;
 }
 
 .logbuttonstyle {
@@ -163,12 +167,33 @@
     border: none;
 }
 
+.logbuttonstyle1 {
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 30px 10px 30px;
+    background-color: #ECCC1C;
+    border-radius: 25px;
+    color: white;
+    border: none;
+    margin-left: 190px;
+    margin-top: 20px;
+}
+
 .logflavorstyle {
     font-family: 'Montserrat', sans-serif;
     font-size: 36px;
     font-weight: 700;
     color: white;
     letter-spacing: 2px;
+}
+
+.logbuttonstyle1:hover {
+    transition: 0.5s;
+    color: black;
+}
+
+.logbuttonstyle:hover {
+    transition: 0.5s;
+    color: black;
 }
 
 .loghyperstyle {
@@ -180,10 +205,8 @@
 }
 
 .loghyperstyle:hover {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    color: white;
-    font-weight: 600;
+    color: black;
+    transition: 0.5s;
 }
 
 .formpadding {
@@ -250,7 +273,7 @@
 }
 
 .homerow {
-    background-image: url(../images/HeadingIndex.png);
+    background-image: url(../img/HeadingIndex.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -292,7 +315,7 @@
     font-size: 20px;
     color: white;
     position: absolute;
-    margin-left: 80px;
+    margin-left: 40px;
     font-weight: 600;
     margin-top: 40px;
     font-style: bold;
@@ -512,7 +535,7 @@
 }
 
 .featappdiv {
-    background-image: url(../images/apartmentinside.png);
+    background-image: url(../img/apartmentinside.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: relative;
@@ -549,6 +572,7 @@
 
 .easyrow2 {
     display: inline-block;
+    max-width: 600px;
 }
 
 .easyholder2 {
@@ -560,13 +584,12 @@
 .undereasy4 {
     text-align: center;
     background-color: white;
-    height: 300px;
+    min-height: 350px;
     width: 400px;
     z-index: 1;
     float: left;
-    margin-left: 185px;
-    margin-right: 75px;
-    margin-top: 300px;
+    margin-left: 160px;
+    margin-right: 150px;
 }
 
 .undereasy5 {
@@ -602,9 +625,7 @@
     height: 300px;
     width: 401px;
     z-index: 3;
-    left: 170px;
-    top: 200px;
-    position: absolute;
+    margin-left: 160px;
 }
 
 .underimage5 {
@@ -1204,6 +1225,7 @@ select:focus {
     float: right;
     font-weight: 700;
     color: white;
+    padding-right: 20px;
 }
 
 .aboutrighttext2 {
@@ -1263,7 +1285,7 @@ select:focus {
     position: absolute;
     color: white;
     height: 600px;
-    width: 400px;
+    width: 450px;
     border-radius: 25px;
     top: 250px;
     left: 150px;
@@ -1339,6 +1361,21 @@ select:focus {
     box-shadow: 15px 10px 5px rgba(0, 0, 0, 0.6);
 }
 
+.userholderedit2 {
+    border: none;
+    padding: 40px 40px 40px 40px;
+    margin-right: 100px;
+    margin-bottom: 50px;
+    background-color: white;
+    height: 1400px;
+    width: 1000px;
+    position: absolute;
+    top: 200px;
+    right: 50px;
+    border-radius: 25px;
+    box-shadow: 15px 10px 5px rgba(0, 0, 0, 0.6);
+}
+
 .userprofstyle {
     height: 200px;
     width: 200px;
@@ -1361,6 +1398,10 @@ select:focus {
 
 .userprofholderedit {
     height: 1450px;
+}
+
+.userprofholderedit2 {
+    height: 1650px;
 }
 
 .tenanttext {
@@ -1726,8 +1767,8 @@ input[type=number]::-webkit-outer-spin-button {
 .aptdetailinfo {
     border: none;
     padding: 50px 50px 50px 50px;
-    width: 900px;
-    height: 700px;
+    width: 800px;
+    min-height: 700px;
     background-color: white;
     box-shadow: 15px 10px 5px rgba(0, 0, 0, 0.6);
     position: absolute;
@@ -1749,7 +1790,7 @@ input[type=number]::-webkit-outer-spin-button {
     font-weight: 600;
     padding: 10px 50px 10px 50px;
     float: right;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-right: 25px;
     border-radius: 25px;
 }
@@ -1768,11 +1809,11 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     position: absolute;
     top: 600px;
-    left: 240px;
+    left: 260px;
 }
 
 .mainaptpic {
-    width: 550px;
+    width: 600px;
     height: 450px;
     padding-bottom: 20px;
     margin-left: 60px;
@@ -1790,7 +1831,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .secaptpic1 {
-    width: 150px;
+    width: 180px;
     height: 150px;
     transition: transform .2s;
 }
@@ -1802,7 +1843,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .secaptpic3 {
-    width: 150px;
+    width: 180px;
     height: 150px;
     transition: transform .2s;
 }
@@ -1829,7 +1870,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: 20px;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .secaptpicholder {
@@ -1846,13 +1887,13 @@ input[type=number]::-webkit-outer-spin-button {
 .secaptpicunder2 {
     position: absolute;
     top: 450px;
-    left: 360px
+    left: 370px
 }
 
 .secaptpicunder3 {
     position: absolute;
     top: 450px;
-    left: 560px
+    left: 580px
 }
 
 .apartmentinfohis {
@@ -2020,11 +2061,73 @@ input[type=number]::-webkit-outer-spin-button {
     margin-right: 40px;
 }
 
+.aparticon4 {
+    float: left;
+    margin-left: 240px;
+}
+
+.aparticon5 {
+    float: left;
+    margin-left: 280px;
+}
+
+.aparticon6 {
+    float: right;
+    margin-right: 40px;
+}
+
 .apartoptext {
     color: white;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     padding-top: 16px;
+    text-decoration: none;
+}
+
+.apartoptext2:hover {
+    text-decoration: none;
+}
+
+.apartoptext1 {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    padding-top: 16px;
+    text-decoration: none;
+    padding-left: 20px;
+}
+
+.apartoptext2:hover {
+    text-decoration: none;
+}
+
+.apartoptext2 {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    padding-top: 16px;
+    margin-left: -30px;
+    text-decoration: none;
+}
+
+.apartoptext:hover {
+    text-decoration: none;
+}
+
+.apartoptext3 {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    padding-top: 16px;
+    text-decoration: none;
+}
+
+.apartoptext3:hover {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 .apartmentproflast {
@@ -2310,7 +2413,7 @@ a:hover {
     /* padding-bottom: 700px; */
     border: 1px solid black;
     padding: 55px;
-    height: 60%;
+    height: 1000px;
     width: 500px;
     position: absolute;
     background-color: white;
@@ -2443,7 +2546,7 @@ a:hover {
     padding: 1em;
     text-align: left;
     line-height: 1.5em;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 20px 20px 20px 20px;
 }
 
@@ -2454,7 +2557,7 @@ a:hover {
 .postbutton {
     background-color: rgb(236, 204, 28);
     border: 1px solid white;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     color: white;
     padding: 5px 20px;
@@ -2467,7 +2570,7 @@ a:hover {
     left: 4%;
     padding: 1em;
     line-height: 1.5em;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin-left: 100px;
 }
 
@@ -2516,13 +2619,14 @@ a:hover {
 
 .commentbutton {
     background-color: rgb(27, 47, 75);
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     color: white;
-    padding: 5px 20px;
+    padding: 10px 20px;
     margin: -5px 20px 0px 0px;
     border-radius: 70px;
     float: right;
+    border: none;
 }
 
 .pagination-forum {
@@ -2607,7 +2711,7 @@ a:hover {
 .userdiscussionlist {
     left: 4%;
     line-height: 1.5em;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin-left: 100px;
 }
 
@@ -2627,7 +2731,7 @@ a:hover {
 
 .replybutton {
     background-color: rgb(27, 47, 75);
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     color: white;
     padding: 5px 20px;
@@ -2704,7 +2808,7 @@ a:hover {
     padding: 20px;
     text-align: left;
     line-height: 1.5em;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 20px 20px 20px 20px;
 }
 
@@ -2748,5 +2852,39 @@ a:hover {
 
 .mapboxgl-popup-content {
     text-align: center;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.userholderedit4 {
+    border: none;
+    padding: 40px 40px 40px 40px;
+    margin-right: 100px;
+    margin-bottom: 50px;
+    background-color: white;
+    height: 700px;
+    width: 1000px;
+    position: absolute;
+    top: 200px;
+    right: 50px;
+    border-radius: 25px;
+    box-shadow: 15px 10px 5px rgba(0, 0, 0, 0.6);
+}
+
+.tenanteditbutton2 {
+    display: inline;
+    position: absolute;
+    top: 300px;
+    left: 340px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    background-color: #DBC132;
+    border: none;
+    padding: 10px 60px;
+    color: white;
+    border-radius: 25px
+}
+
+.tenanteditbutton2:hover {
+    background-color: #1B2F4B;
+    transition: 0.5s;
 }

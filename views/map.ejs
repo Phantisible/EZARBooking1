@@ -167,7 +167,9 @@
                                         marker.properties.price +
                                         '/month</p><p>Description:' +
                                         marker.properties.description +
-                                        '</p>'
+                                        '</p>' + '<a href="/apartmentDetails/' +
+                                        marker.properties.appID +
+                                        '"><button type="button">See more →</button></a>'
                                     )
                                 )
                                 .addTo(map);

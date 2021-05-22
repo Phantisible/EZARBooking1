@@ -19,36 +19,42 @@
             <li class="listyle">
                 <a href="/map" class="headerlinks">Maps</a>
             </li>
+            <%var accT = user.accType%>
+                <%if(accT==2){%>
+                    <li class="listyle">
+                        <a href="/manageAll" class="headerlinks">Manage All</a>
+                    </li>
+                    <%}%>
         </ul>
     </div>
     <div class="col-md-4">
         <div class="rightheader">
-            <%var u = user%>
-                <%if (u!=null) { %>
-                    <p class="welcomeuser">
-                        Welcome
-                        <%if (user.accType == 1) { %>
-                            Owner,
-                            <%}else if (user.accType == 0){ %>
-                                Tenant,
-                                <%}%>
+            <!-- <%var u = user%>
+                <%if (u!=null) { %> -->
+            <p class="welcomeuser">
+                Welcome
+                <%if (user.accType == 1) { %>
+                    Owner,
+                    <%}else if (user.accType == 0){ %>
+                        Tenant,
+                        <%}%>
 
-                                    <%-user.fname%> !
-                    </p>
+                            <%-user.fname%> !
+            </p>
 
-                    <!-- <img class="profileimage" alt="Profile logo" src="images/kylo.png"/> -->
-                    <a href="/profile">
+            <!-- <img class="profileimage" alt="Profile logo" src="images/kylo.png"/> -->
+            <a href="/profile">
                 <img class="profileimage img-circle" alt="Profile logo" src="img/profileImg/<%-user.image%>" >
             </a>
 
-                    <!-- <a href="#" class="logoutuser"> Log Out </a> -->
-                    <a class="logoutuser" href="/logout">Log Out</a>
-
+            <!-- <a href="#" class="logoutuser"> Log Out </a> -->
+            <a class="logoutuser" href="/logout">Log Out</a>
+            <!-- 
                     <%}else{%>
 
                         Login
 
-                        <%}%>
+                        <%}%> -->
         </div>
     </div>
 </div>

@@ -272,7 +272,54 @@ control.post("/forumsAddcomment/:id", (req, res) => {
     // res.redirect("/forums/posts?id=" + req.params.id);
 })
 control.get("/forums/posts/:id", (req, res) => {
-    res.redirect("/forums/posts?id=" + req.params.id);
+    // res.redirect("/forums/posts?id=" + req.params.id);
+    res.locals.user = req.session.user;
+    var x, y;
+
+    var datas = new Array();
+    connection.query("SELECT * FROM forum WHERE accUID = '" + req.params.id + "'", (err, results) => {
+        if (err) {
+            throw err;
+        }
+        // req.session.user.fname;
+        datas = results;
+
+        connection.query("SELECT * FROM account   ", (err, accounts) => {
+                if (err) {
+                    throw err;
+                }
+
+                for (x = 0; x < results.length; x++) {
+                    for (y = 0; y < accounts.length; y++) {
+                        if (results[y] != null) {
+                            if (results[y].accUID == accounts[x].accUID) {
+                                datas[y].fname = accounts[x].fname;
+                                datas[y].lname = accounts[x].lname;
+                                datas[y].contact = accounts[x].contact;
+                                datas[y].emailadd = accounts[x].emailadd;
+                                datas[y].accImage = accounts[x].image;
+                                // console.log(accounts[x].accUID);
+                            }
+
+                        }
+
+                    }
+                }
+                // res.send(datas)
+
+                res.render("forums", { data: datas });
+
+                // res.send(datas);
+
+            })
+            // res.send(datas);
+
+
+        // res.redirect("/profile");
+        // res.send("Success");
+
+    })
+
 })
 
 control.get("/commentDelete/:id/:text", (req, res) => {
@@ -286,12 +333,9 @@ control.get("/commentDelete/:id/:text", (req, res) => {
 
 })
 
-control.get("/forums/findRoommate")
-
 control.get("/forums/findRoommate", (req, res) => {
     res.locals.user = req.session.user;
-
-
+    var x, y;
     var datas = new Array();
     connection.query("SELECT * FROM forum WHERE type = 'findRoommate'", (err, results) => {
         if (err) {
@@ -303,19 +347,36 @@ control.get("/forums/findRoommate", (req, res) => {
                 if (err) {
                     throw err;
                 }
-                var y = results.length - 1;
-                for (x = 0; x < accounts.length; x++) {
-                    if (results[y] != null) {
-                        if (results[y].accUID == accounts[x].accUID) {
-                            datas[y].fname = accounts[x].fname;
-                            datas[y].lname = accounts[x].lname;
-                            datas[y].contact = accounts[x].contact;
-                            datas[y].emailadd = accounts[x].emailadd;
-                            datas[y].accImage = accounts[x].image;
-                            // console.log(accounts[x].accUID);
-                            x = 0;
-                            y--;
+                // var y = results.length - 1;
+                // for (x = 0; x < accounts.length; x++) {
+                //     if (results[y] != null) {
+                //         if (results[y].accUID == accounts[x].accUID) {
+                //             datas[y].fname = accounts[x].fname;
+                //             datas[y].lname = accounts[x].lname;
+                //             datas[y].contact = accounts[x].contact;
+                //             datas[y].emailadd = accounts[x].emailadd;
+                //             datas[y].accImage = accounts[x].image;
+                //             // console.log(accounts[x].accUID);
+                //             x = 0;
+                //             y--;
+                //         }
+                //     }
+                // }
+
+                for (x = 0; x < results.length; x++) {
+                    for (y = 0; y < accounts.length; y++) {
+                        if (results[y] != null) {
+                            if (results[y].accUID == accounts[x].accUID) {
+                                datas[y].fname = accounts[x].fname;
+                                datas[y].lname = accounts[x].lname;
+                                datas[y].contact = accounts[x].contact;
+                                datas[y].emailadd = accounts[x].emailadd;
+                                datas[y].accImage = accounts[x].image;
+                                // console.log(accounts[x].accUID);
+                            }
+
                         }
+
                     }
                 }
 
@@ -338,7 +399,7 @@ control.get("/forums/findRoommate", (req, res) => {
 
 control.get("/forums/posts", (req, res) => {
     res.locals.user = req.session.user;
-
+    var x, y;
 
     var datas = new Array();
     connection.query("SELECT * FROM forum WHERE accUID = '" + req.query.id + "'", (err, results) => {
@@ -351,19 +412,21 @@ control.get("/forums/posts", (req, res) => {
                 if (err) {
                     throw err;
                 }
-                var y = results.length - 1;
-                for (x = 0; x < accounts.length; x++) {
-                    if (results[y] != null) {
-                        if (results[y].accUID == accounts[x].accUID) {
-                            datas[y].fname = accounts[x].fname;
-                            datas[y].lname = accounts[x].lname;
-                            datas[y].contact = accounts[x].contact;
-                            datas[y].emailadd = accounts[x].emailadd;
-                            datas[y].accImage = accounts[x].image;
-                            // console.log(accounts[x].accUID);
-                            x = 0;
-                            y--;
+
+                for (x = 0; x < results.length; x++) {
+                    for (y = 0; y < accounts.length; y++) {
+                        if (results[y] != null) {
+                            if (results[y].accUID == accounts[x].accUID) {
+                                datas[y].fname = accounts[x].fname;
+                                datas[y].lname = accounts[x].lname;
+                                datas[y].contact = accounts[x].contact;
+                                datas[y].emailadd = accounts[x].emailadd;
+                                datas[y].accImage = accounts[x].image;
+                                // console.log(accounts[x].accUID);
+                            }
+
                         }
+
                     }
                 }
 
@@ -396,6 +459,79 @@ control.get("/map", (req, res) => {
 
 })
 
+control.get("/settings", (req, res) => {
+    res.locals.user = req.session.user;
+    res.render("changePass");
+
+
+})
+
+control.post("/changePass/:id", (req, res) => {
+    res.locals.user = req.session.user;
+
+    // var md5Hash = md5(req.body.password + results[0].emailadd);
+    connection.query("SELECT * FROM account WHERE accUID='" + req.params.id + "' ", (err, results) => {
+
+        var md5Hash = md5(req.body.password + results[0].emailadd);
+        if (err) {
+            throw err;
+        }
+        if (results[0].password === md5Hash.toString().substring(0, 20)) {
+            var hash = md5(req.body.newpass + results[0].emailadd);
+            var pass = hash.toString().substring(0, 20)
+            if (req.body.newpass === req.body.repeatpass) {
+                connection.query('UPDATE  account SET password = "' + pass + '" WHERE accUID="' + req.params.id + '"', (err, results) => {
+
+                    // req.session.user.password = md5Hash.toString().substring(0, 20)
+                    res.redirect("/profile");
+
+                })
+            } else {
+                res.send("Password Mismatch")
+            }
+
+        } else {
+            console.log("fail");
+            res.send(md5Hash.toString().substring(0, 20))
+        }
+        //     res.send(results);
+        // } else {
+        //     res.send("Failed");
+        // }
+
+        // res.render("map", { apartments: results });
+    })
+
+
+})
+
+control.post("/login", (req, res) => {
+    connection.query('SELECT * FROM account WHERE emailadd="' + req.body.email + '"', (err, results) => {
+        var md5Hash = md5(req.body.password + results[0].emailadd);
+        // res.send(md5Hash.toString().substring(0, 20) + " " + results[0].password);
+        if (err) {
+            throw err
+        } else {
+            if (results[0].password === md5Hash.toString().substring(0, 20)) {
+                // req.session.accUID = JSON.stringify(results[0].accUID);
+                var string = encodeURIComponent(results[0].accUID);
+                req.session.user = results[0];
+                res.locals.user = req.session.user;
+                // res.render('home');
+
+                res.redirect("/home");
+            } else {
+                res.send("This account does not exist");
+            }
+
+        }
+
+    })
+})
+
+
+
+
 control.get("/forums", (req, res) => {
     res.locals.user = req.session.user;
 
@@ -420,6 +556,7 @@ control.get("/forums", (req, res) => {
                             datas[y].contact = accounts[x].contact;
                             datas[y].emailadd = accounts[x].emailadd;
                             datas[y].accImage = accounts[x].image;
+                            datas[y].accType = accounts[x].accType;
                             console.log(accounts[x].accUID);
                             x = 0;
                             y--;
@@ -598,7 +735,6 @@ control.get("/editTenantProfile=:username", (req, res) => {
 
     res.locals.user = req.session.user;
     res.render("tenantProfileEdit");
-
 })
 
 control.get("/edit/:id", (req, res) => {
@@ -608,7 +744,7 @@ control.get("/edit/:id", (req, res) => {
 
 control.post("/apartmentAdd/:id", (req, res) => {
 
-    connection.query('INSERT INTO `apartment`( `accUID`, `city`, `street`, `baranggay`, `type`, `capacity`, `restriction`, `price`, `description`,`image1`,`image2`,`image3`,`image4`) VALUES ("' + req.params.id + '","' + req.body.city + '","' + req.body.street + '","' + req.body.baranggay + '","' + req.body.type + '","' + req.body.capacity + '","' + req.body.restriction + '","' + req.body.price + '","' + req.body.description + '","' + req.body.image + '","' + req.body.image1 + '","' + req.body.image2 + '","' + req.body.image3 + '")', (err, results) => {
+    connection.query('INSERT INTO `apartment`( `accUID`, `city`, `street`, `baranggay`, `type`, `capacity`, `restriction`, `price`, `description`,`image1`,`image2`,`image3`,`image4`,`locationX`,`locationY`) VALUES ("' + req.params.id + '","' + req.body.city + '","' + req.body.street + '","' + req.body.baranggay + '","' + req.body.type + '","' + req.body.capacity + '","' + req.body.restriction + '","' + req.body.price + '","' + req.body.description + '","' + req.body.image + '","' + req.body.image1 + '","' + req.body.image2 + '","' + req.body.image3 + '","' + req.body.locationLong + '","' + req.body.locationLat + '")', (err, results) => {
         if (err) {
             throw err;
         } else {
@@ -773,29 +909,7 @@ control.post("/signup", (req, res) => {
 
 })
 
-control.post("/login", (req, res) => {
-    connection.query('SELECT * FROM account WHERE emailadd="' + req.body.email + '"', (err, results) => {
-        var md5Hash = md5(req.body.password + results[0].emailadd);
-        // res.send(md5Hash.toString().substring(0, 20) + " " + results[0].password);
-        if (err) {
-            throw err
-        } else {
-            if (results[0].password === md5Hash.toString().substring(0, 20)) {
-                // req.session.accUID = JSON.stringify(results[0].accUID);
-                var string = encodeURIComponent(results[0].accUID);
-                req.session.user = results[0];
-                res.locals.user = req.session.user;
-                // res.render('home');
 
-                res.redirect("/home");
-            } else {
-                res.send("This account does not exist");
-            }
-
-        }
-
-    })
-})
 
 control.get("/sample", (req, res) => {
     connection.query('SELECT * FROM sample', (err, results) => {
@@ -858,27 +972,185 @@ control.post("/emailSends", (req, res) => {
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'arnanplanco@gmail.com',
-            pass: 'reginleaf5254'
+            user: req.body.email,
+            pass: req.body.password
         }
     });
 
     var mailOptions = {
-        from: 'arnanplanco@gmail.com',
-        to: 'plancoarnan@gmail.com',
-        subject: 'Sending Email using Node.js',
-        text: 'testing'
+        from: req.body.email,
+        to: 'arnanplanco@gmail.com',
+        subject: 'EzARBooking Message',
+        text: req.body.message
     };
 
     transporter.sendMail(mailOptions, function(error, info) {
         if (error) {
             console.log(error);
         } else {
-            console.log('Email sent: ' + info.response);
+            console.log('Email sent ');
+            // res.send("Email Sent");
+            res.redirect("/home");
         }
     });
 
 
 })
+
+//ADMIN
+control.get("/manageAll", (req, res) => {
+    res.locals.user = req.session.user;
+    res.render("adminManage", );
+
+
+})
+
+control.get("/adminApartments", (req, res) => {
+    let datas = []
+    var x = 0,
+        y = 0
+    res.locals.user = req.session.user;
+    connection.query('SELECT * FROM apartment', (err, results) => {
+
+        if (err) {
+            throw err
+        }
+        datas = results;
+        connection.query('SELECT * FROM account ', (err, account) => {
+
+            if (err) {
+                throw err
+            }
+            for (x = 0; x < results.length; x++) {
+                for (y = 0; y < account.length; y++) {
+                    if (results[x].accUID == account[y].accUID) {
+                        datas[x].fname = account[y].fname;
+                        datas[x].lname = account[y].lname;
+                        datas[x].contact = account[y].contact;
+                        datas[x].details = account[y].details;
+                        datas[x].emailadd = account[y].emailadd;
+                        datas[x].image = account[y].image;
+                    }
+                }
+            }
+            res.render("adminManageApartments", { data: datas });
+
+        })
+
+    })
+
+
+})
+
+control.get("/adminAccounts", (req, res) => {
+    res.locals.user = req.session.user;
+    connection.query('SELECT * FROM account WHERE accType = 1 OR accType = 0', (err, results) => {
+        if (err) {
+            throw err
+        }
+        res.render("adminManageAccounts", { data: results });
+    })
+
+
+})
+
+control.get("/administrators", (req, res) => {
+    res.locals.user = req.session.user;
+    connection.query('SELECT * FROM account WHERE accType = 2 AND accUID !="' + req.session.user.accUID + '"', (err, results) => {
+        if (err) {
+            throw err
+        }
+        res.render("adminManageAdmin", { data: results });
+    })
+
+
+})
+
+control.get("/createAdminAccount", (req, res) => {
+    res.locals.user = req.session.user;
+
+    res.render("adminAddAccount");
+
+
+
+})
+
+control.post("/addAdmin", (req, res) => {
+
+    req.body.uuid = generateCode();
+    var md5Hash = md5(req.body.password + req.body.email);
+    connection.query("INSERT INTO `account`( `accUID`,`image`, `fname`, `lname`,`gender`,`contact`,`birthdate`, `emailadd`, `password`,`accType`) VALUES ('" + req.body.uuid + "','" + req.files.image.name + "','" + req.body.fname + "','" + req.body.lname + "','" + req.body.gender + "','" + req.body.contact + "','" + req.body.bdate + "','" + req.body.email + "','" + md5Hash.toString() + "',2)", (err, results) => {
+
+        if (err) {
+            throw err
+        }
+        // res.send("Account added");
+
+        sampleFile = req.files.image;
+        uploadPath = __dirname + '/public/img/profileImg/' + sampleFile.name;
+
+        sampleFile.mv(uploadPath, function(err) {
+            if (err) return res.status(500).send(err);
+
+            console.log(sampleFile);
+        })
+        res.redirect("/manageAll");
+    })
+
+
+})
+
+control.get("/deleteAccount/:uuid/:accT", (req, res) => {
+    res.locals.user = req.session.user;
+
+
+    connection.query('DELETE FROM account WHERE accUID = "' + req.params.uuid + '" ', (err, results1) => {
+        if (err) {
+            throw err
+        }
+        connection.query('DELETE FROM forum WHERE accUID = "' + req.params.uuid + '"', (err, results2) => {
+            if (err) {
+                throw err
+            }
+            connection.query('DELETE FROM forumcomment WHERE accUID = "' + req.params.uuid + '"', (err, results3) => {
+                if (err) {
+                    throw err
+                }
+                if (req.params.accT == 0) {
+                    connection.query('DELETE FROM rentrequest WHERE tenantUID = "' + req.params.uuid + '"', (err, results4) => {
+                        if (err) {
+                            throw err
+                        }
+
+                        res.redirect('back');
+                    })
+                } else if (req.params.accT == 1) {
+                    connection.query('DELETE FROM apartment WHERE accUID = "' + req.params.uuid + '"', (err, results5) => {
+                        if (err) {
+                            throw err
+                        }
+
+                        res.redirect('back');
+                    })
+                }
+            })
+        })
+    })
+
+
+})
+
+
+
+// control.get("/manageAll", (req, res) => {
+//     connection.query('SELECT * FROM sample', (err, results) => {
+//         if (err) {
+//             throw err
+//         }
+//         res.render("zsample", { data: results[0] });
+//     })
+
+
+// })
 
 control.listen(3000);

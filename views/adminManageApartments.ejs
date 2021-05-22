@@ -1,4 +1,4 @@
-<title>Tenant Profile</title>
+<title>Owner Profile</title>
 </head>
 <%- include ('partials/head.ejs') %>
 
@@ -15,7 +15,7 @@
                                         <div class="optionholder">
                                             <div class="optiondiv">
                                                 <img class="optionimg" alt="Profile Information" src="img/iconperson.png" />
-                                                <a href="/profile" class="optiontext">
+                                                <a href="/manageAll" class="optiontext">
                                                     <p class="optiontext">
                                                         Profile Information
                                                     </p>
@@ -23,54 +23,36 @@
 
                                             </div>
                                             <div class="optiondiv">
-                                                <img class="optionimg" alt="Profile Information" src="img/folder.png" />
-
-                                                <p class="optiontext" style="color: black;">
-                                                    Requested Apartments
-                                                </p>
-
+                                                <img class="optionimg" alt="Profile Information" src="img/cog.png" />
+                                                <a href="/adminApartments" class="optiontext" style="color: black;">
+                                       Manage Apartments
+                                    </a>
                                             </div>
                                             <div class="optiondiv">
                                                 <img class="optionimg" alt="Profile Information" src="img/cog.png" />
-                                                <a href="/settings" class="optiontext">
-                                    Settings
-                                </a>
+                                                <a href="/adminAccounts" class="optiontext">
+                                        Manage Accounts
+                                    </a>
+                                            </div>
+                                            <div class="optiondiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/cog.png" />
+                                                <a href="/administrators" class="optiontext">
+                                       Manage Admins
+                                    </a>
                                             </div>
                                             <div class="optionlogdiv">
                                                 <img class="optionimg" alt="Profile Information" src="img/ExitWhite.png" />
-                                                <a href="/login" class="optiontext">
+                                                <a href="/logout" class="optiontext">
                                     Log Out
                                 </a>
                                             </div>
-                                        </div>
-                                        <div class="apartprofop">
-                                            <h3 class="apartophead">What would you like to do today?</h3>
-                                            <div class="aparticon1">
-                                                <a href="/forums">
-                                                    <img class="apartproficon" alt="Apartment Picture" src="img/moneyblue.png" />
-                                                </a>
-                                                <p class="apartoptext1">Find Roommates</p>
-                                            </div>
-
-                                            <div class="aparticon2">
-                                                <img class="apartproficon" alt="Apartment Picture" src="img/copyblue.png" />
-                                                <p class="apartoptext2">Request For New Apartments</p>
-                                            </div>
-
-                                            <div class="aparticon3">
-                                                <a href="/apartments">
-                                                    <img class="apartproficon" alt="Apartment Picture" src="img/rentblue.png" />
-                                                </a>
-                                                <p class="apartoptext3">Apartments Up For Rent</p>
-                                            </div>
-
                                         </div>
 
                                         <div class="apartmentproflast">
                                             <img class="apartprofpic" alt="Apartment Picture" src="img/hotel.png" />
                                             <div class="apartproftextholder">
-                                                <p class="apartproftextflav">Current apartments requested</p>
-                                                <p class="apartproftextflav2">Shows details of the current apartment booked </p>
+                                                <p class="apartproftextflav">Manage Apartments</p>
+                                                <p class="apartproftextflav2">Shows details of the added apartments </p>
                                             </div>
                                         </div>
                                         <% for (x=0;x<data.length; x++){%>
@@ -80,54 +62,59 @@
                                                     <img class="apartmentinfopichis" alt="Apartment Picture" src="img/imgplace.png" />
 
                                                     <div class="apttextholderhis">
-                                                        ID:
                                                         <p class="apartmenttexthis">
                                                             Address:
-                                                            <%-data[x].city %> ,
-                                                                <%-data[x].street %>
-                                                                    <%-data[x].baranggay %>
+                                                            <%-data[x].city%>
+                                                                <%-data[x].street%>
+                                                                    <%-data[x].baranggay%>
                                                         </p>
                                                         <p class="apartmenttexthis">
                                                             Room type:
-                                                            <%-data[x].type %>
+                                                            <%-data[x].type%>
                                                         </p>
                                                         <p class="apartmenttexthis">
                                                             Capacity:
-                                                            <%-data[x].capacity %>
+                                                            <%-data[x].capacity%>
                                                         </p>
                                                         <p class="apartmenttexthis">
                                                             Restriction:
-                                                            <%-data[x].restriction %>
+                                                            <%-data[x].restriction%>
                                                         </p>
                                                         <p class="apartmenttexthis">
                                                             Price: Php
-                                                            <%-data[x].price %>/ month
+                                                            <%-data[x].price%>/ month
                                                         </p>
                                                         <p class="apartmenttexttenant">
-                                                            Tenants:
+                                                            Owner:
+                                                            <%-data[x].fname%>
+                                                                <%-data[x].lname%>
                                                         </p>
-                                                        <img class="aptdetailpicown" src="img/liz.png">
+                                                        <img class="aptdetailpicown" src="img/profileImg/<%-data[x].image%>">
 
                                                     </div>
                                                 </div>
                                                 <div class="aptstarandbutthis3">
-                                                    <img class="apartmentratinghis" alt="Apartment Rating" src="img/stars.png" />
                                                     <a href="/apartmentDetails/<%-data[x].appID %>"><button type="button" class="apartmentbuttonhis">
-                                                        See more →
-                                                        </button></a>
+									See more →
+								</button></a>
+                                                    <a href="/deleteApartment/<%-data[x].appID %>"><button type="button" class="apartmentbuttonhis">
+									Delete
+								</button></a>
+
+
                                                 </div>
                                             </div>
+
                                     </div>
-                                    <%}%>
-
                                 </div>
-
+                                <%}%>
                             </div>
-
                     </div>
-                    <%- include ('partials/footer.ejs') %>
                 </div>
             </div>
+            <%- include ('partials/footer.ejs') %>
+        </div>
+        </div>
         </div>
     </body>
 

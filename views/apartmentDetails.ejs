@@ -119,11 +119,6 @@
                                                 <%-app.capacity %>
                                             </p>
                                             <p class="aptdetailspace">
-                                                Person staying:
-                                                <%-app.city %>
-                                                    <img class="aptdetailpic" src="img/arnan.png">
-                                            </p>
-                                            <p class="aptdetailspace">
                                                 Restriction:
                                                 <%-app.restriction %>
                                             </p>
@@ -132,12 +127,36 @@
                                                 <%-app.price %>/ month
                                             </p>
                                             <p class="aptdetailspace">
-                                                Owner: <img class="aptdetailpic" src="img/profileImg/<%-user.image%>"><br> Name:
+                                                Owner:<button data-toggle="modal" data-target="#myModal"><img class="aptdetailpic" src="img/profileImg/<%-app.image%>"><br></button>
                                                 <%-app.fname %>
-                                                    <%-app.lname %><br> Contact:
-                                                        <%-app.contact %><br> Email:
-                                                            <%-app.emailadd %><br>
+                                                    <%-app.lname %>
                                             </p>
+
+                                            <div id="myModal" class="modal fade" role="dialog">
+                                                <div class="modal-dialog">
+
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            <h4 class="modal-title">Owner Profile</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img class="aptdetailpic" src="img/profileImg/<%-app.image%>">
+                                                            <p>Contact:
+                                                                <%-app.fname %>
+                                                            </p>
+                                                            <p>Email Address:
+                                                                <%-app.emailadd %>
+                                                            </p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
                                             <p class="aptdetailspace">
                                                 Description:
                                             </p>
