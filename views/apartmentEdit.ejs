@@ -1,0 +1,169 @@
+<title>Owner Profile Edit</title>
+</head>
+<%- include ('partials/head.ejs') %>
+
+    <body class="othercolorgrad">
+        <div class="container-fluid outercontain">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <%- include ('partials/header.ejs') %>
+
+                            <div>
+                                <div class="container-fluid">
+                                    <div class="row  userprofholderedit">
+                                        <div class="optionholder">
+
+                                            <div class="optiondiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/iconperson.png" />
+                                                <a href="/profile" class="optiontext">
+
+                                                </a>
+                                                <p class="optiontext" style="color: black;">
+                                                    Profile Information
+                                                </p>
+                                            </div>
+                                            <div class="optiondiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/folder.png" />
+                                                <a href="/apartmentProfiles/<%-user.accUID%>" class="optiontext">
+                                        Apartment History
+                                    </a>
+                                            </div>
+                                            <div class="optiondiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/cog.png" />
+                                                <a href="#" class="optiontext">
+                                        Settings
+                                    </a>
+                                            </div>
+                                            <div class="optionlogdiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/ExitWhite.png" />
+                                                <a href="/login" class="optiontext">
+                                        Log Out
+                                    </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="userholderedit">
+                                            <h3 class="tenanttext">
+                                                <%-app.id%> Edit
+                                            </h3>
+                                            <img class="userprofstyle" onclick="document.getElementById('tenantmodal')" alt="Tenant Profile Image" src="img/profileImg/<%-user.image%>" />
+                                            <img class="pencil" alt="Edit Image" src="img/pencil.png">
+
+                                            <form role="form" method="POST" action="/apartmentEdit/<%-app.id%> ">
+
+                                                <div class="tenantinfoeditdiv">
+
+
+                                                    <div class="container-fluid">
+
+                                                        <div class="row">
+
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label class="tenantinfolabels" for="UserMName">
+                                                                Apartment Picture
+                                                            </label>
+                                                                    <button class="tenanteditbutton" type="submit">Edit</button>
+                                                                    <img src='img/add.png' style="height: 40px; width: 40px;" onclick="myFunction()">Add picture here
+                                                                    <input required class="tenantinfoinput" type="file" class="form-control" name="image" accept="image/*" style="width: 100px;" />
+                                                                    <div id="hello"></div>
+                                                                    <div id="samp1"></div>
+                                                                    <div id="samp2"></div>
+                                                                    <div id="samp3"></div>
+
+
+                                                                </div>
+                                                                <script>
+                                                                    var x = 0;
+
+                                                                    function myFunction() {
+
+                                                                        if (x < 3) {
+                                                                            x++;
+                                                                            // document.writeln("<button onclick=' myFunction()'>" + x + "</button><br><br>").innerHtml;
+
+                                                                            document.getElementById("samp" + x).innerHTML = '<br><div id="sampol' + x + '"><input required class="tenantinfoinput" type="file" class="form-control" name="image' + x + '" accept="image/*" /><img src="img/x.png" onclick="myFunctionDelete()" style="height: 20px; width: 20px;" ></div>';
+                                                                        } else if (x == 5) {
+                                                                            x--;
+                                                                        }
+                                                                    }
+
+                                                                    function myFunctionDelete() {
+
+                                                                        // document.writeln("<button onclick=' myFunction()'>" + x + "</button><br><br>").innerHtml;
+                                                                        document.getElementById("sampol" + x).remove();
+                                                                        x--;
+
+                                                                    }
+                                                                </script>
+
+                                                                <div class="form-group">
+                                                                    <label class="tenantinfolabels" for="UserMName">
+                                                                    City
+                                                                </label>
+                                                                    <input class="tenantinfoinput" type="text" class="form-control" name="city" required/>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="tenantinfolabels" for="UserMName">
+                                                                    Street
+                                                                </label>
+                                                                    <input class="tenantinfoinput" type="text" class="form-control" name="street" required/>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="tenantinfolabels" for="UserLName">
+                                                                    Baranggay
+                                                                </label>
+                                                                    <input class="tenantinfoinput" type="text" class="form-control" name="baranggay" required/>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="tenantinfolabels" for="UserLName">
+                                                                    Type
+                                                                </label>
+                                                                    <input class="tenantinfoinput" type="text" class="form-control" name="type" required/>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="tenantinfolabels" for="UserContactNumber">
+                                                                    Capacity
+                                                                </label>
+                                                                    <input class="tenantinfoinput" type="text" class="form-control" name="capacity" required/>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="tenantinfolabels" for="UserContactNumber">
+                                                                    Restriction
+                                                                </label>
+                                                                    <input class="tenantinfoinput" type="text" class="form-control" name="restriction" required />
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="tenantinfolabels" for="UserContactNumber">
+                                                                    Price
+                                                                </label>
+                                                                    <input class="tenantinfoinput" type="text" class="form-control" name="price" required/>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="tenantinfolabels" for="UserContactNumber">
+                                                                    Details
+                                                                </label>
+                                                                    <input class="tenantinfoinput" type="text" class="form-control" name="description" style="height: 200px;" required/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <%- include ('partials/footer.ejs') %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    </html>

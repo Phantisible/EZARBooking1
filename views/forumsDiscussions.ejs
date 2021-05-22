@@ -1,0 +1,259 @@
+<title>
+    Forums</title>
+</head>
+<%- include ('partials/head.ejs') %>
+
+    <body class="othercolorgrad">
+        <div class="container-fluid outercontain">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <%- include ('partials/header.ejs') %>
+                            <div class="row">
+                                <div class="col-md-12 forumholder">
+                                    <h3 class="flavoredforum">
+                                        Forums
+                                    </h3>
+                                    <p class="ezflavorforum">See all discussions and share your ideas and expressions here
+                                    </p>
+                                    <img class="messageicon" alt="messageicon" src="img/messageicon.png">
+                                </div>
+                            </div>
+                    </div>
+
+
+                    <div class="userdiscussion">
+                        <img style="margin-left: 30px; height: 150px;width: 150px;" class="discussion-image" src="img/<%-data[0].image%> ">
+                        <div class="userdiscussionbody ">
+                            <h3><b><%-data[0].name%>   </h3></b>
+                                <br>
+                                <b><%-data[0].fname%> <%-data[0].lname%></b>
+                                <br>
+                                <%-data[0].createdAt%>
+                        </div>
+                        <div class="separator">
+                            <div class="discussiondata">
+                                <p>
+                                    <%-data[0].text%>
+                                </p>
+                                <p style="font-size: medium; float:right; margin-right: 4%; margin-bottom: 20px;">
+                                    <span style="margin: 10px 20px 0 0;"><i class="fa fa-arrow-up" aria-hidden="true"></i> 365 </span>
+                                    <span><i class="fa fa-arrow-down" aria-hidden="true"></i> 38 </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <img class="commenticon" src="img/commenticon.png">
+
+                    </div>
+                    <div class="userdiscussioncommentlist">
+
+                        <!--  for(x=1; x<data.length; x++)-->
+                        <% for(x=1; x<data.length; x++){%>
+                            <div class="discussionlist">
+                                <a href="#"><img src="img/profileImg/<%-data[x].image%>" style="margin-left:20px;height: 100px;
+                        width: 100px;" class="discussion-image" alt="No User Image" /></a>
+                                <div class="userdiscussioncommentbubble">
+                                    <div class="discussion-body" style="padding-left: 100px;">
+
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <p> <b><h4> <%-data[x].fname%> <%-data[x].lname%></h4></b></p>
+                                                <p class="discussiontittle">
+                                                    <%-data[x].name%>
+                                                </p>
+                                                <p class="text-secondary" style="margin-left:20px;font-size: 30px;">
+                                                    <%-data[x].text%>
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <p class="discussiondate">
+                                                    <b><h5><%-data[x].createdAt%>  </h5></b>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="separator">
+                                        <div class="discussioncomment">
+                                            <div class="row">
+                                                <div class="col-sm-2">
+                                                    <img src="img/profileImg/<%-user.image%>" class="discussioncomment-image" alt="No User Image" /></a>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <%-data[x].fname%>
+                                                        <%-data[x].lname%><br>
+                                                            <p style="color: red;">Name of the User</p>
+                                                </div>
+                                                <%var z=data[x].accUID%>
+                                                    <% if(z==user.accUID){%>
+                                                        <div style="padding-right: 50px;">
+                                                            <a href="/commentDelete/<%-data[0].forumID%>/<%-data[x].text%>"><button type="button"  style="width: 0px; height: 20px; float: right; padding-right: 110px;padding-bottom: 20px;">
+                                                                DeleteComment
+                                                            </button></a>
+                                                        </div>
+                                                        <%}%>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+                    </div>
+                    <div class="addComment">
+                        <a href="#"><img src="img/profileImg/<%-user.image%>" style="margin-left:60px;height: 100px;
+                width: 100px;" class="discussion-image" alt="No User Image" /></a>
+                        <div class="comment-bubble tri-right left-in">
+                            <form action="/forumsAddcomment/<%-data[0].forumsID%>" method="POST">
+                                <div class="commenttext">
+
+
+                                    <input class="input-field" type="text" name="text" maxlength="100" style="width:100%;" placeholder="Write your comments here..." required/>
+
+
+
+                                </div>
+                                <div class="separator">
+                                    <button type="submit" class="postbutton">
+                                    Comment
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+                    <!-- <% for(x=1; x<data.length; x++){%>
+                <div class="userdiscussionlist">
+
+                        <p>
+                            <%-data[x].fname%>
+                                <%-data[x].lname%>
+                        </p>
+                        <p>
+                            <%-data[x].text%>
+                        </p>
+                        <%var z=data[x].accUID%>
+                            <% if(z==user.accUID){%>
+                                <div style="padding-right: 50px;">
+                                    <a href="/commentDelete/<%-data[0].forumID%>/<%-data[x].text%>"><button type="button"  style="width: 0px; height: 20px; float: right; padding-right: 110px;padding-bottom: 20px;">
+                                        DeleteComment
+                                    </button></a>
+                                </div>
+                                <%}%>
+
+                
+                </div>
+                <% } %>    -->
+
+
+
+                    <!-- <div style="margin: auto;">
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <div class="col-md-11" style="margin: auto; padding-left: 300px;">
+                                <div class="userholder" style="margin: auto;">
+                                    <%-data[0].forumsID%>
+                                        
+
+                                        <img class="userprofstyle" style="width: 40px;height: 40px;" alt="Owner Profile Image" src="img/profileImg/<%-user.image%>" />
+                                        <br><br>
+                                        
+                                        <div>
+                                            <center>
+                                                <%-data[0].text%>
+
+                                            </center>
+
+                                            <br><br><br>
+                                        </div>
+                                        <form action="/forumsAddcomment/<%-data[0].forumsID%>" method="POST">
+                                            <button type="submit">Add comment +</button>
+                                            <input type="text" name="text" maxlength="100" style="width: 400px;" placeholder="Add a Comment..." required/>
+
+                                        </form>
+
+                                        
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+
+                    <div class="forumsearch">
+                        <div class="search-container" style="margin:10px 0 50px 0;">
+                            <form>
+                                <div class="input-container" style="border: 1px solid black; font-size: 20px;">
+
+                                    <input class="input-field" type="text" placeholder="Search for a tag" name="searchforatag">
+                                    <i class="fa fa-search" style="font-size: 30px;margin-top:10px;"></i>
+
+                                    <a href="#" class="" style="color: white;font-size: 30px;margin:0px 0 0 10px;">
+                                        <button type="submit" class="" style="background-color: rgb(219,193,50);">
+                                        <i class="fas fa-arrow-right" style="width: 50px;"></i>
+                                    </button>
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="threads">
+                            <h2 style="text-align:center;">Threads</h2>
+
+                            <p class="breakAll narrow">
+
+                                <a href="#allThreads" class="nav-link nav-link-faded has-icon">#All Threads</a>
+                                <a href="/forums/findRoommate" class="nav-link nav-link-faded has-icon">#Find a Roommate</a><br>
+                                <a href="#roomsReview" class="nav-link nav-link-faded has-icon">#Rooms Review</a>
+                                <a href="/forums/posts/<%-user.accUID%>" class="nav-link nav-link-faded has-icon">#Own Posts</a>
+
+                            </p>
+                        </div>
+                        <div class="top3posts" style="margin-top: 50px;">
+                            <h2 style="text-align:center;">Top 3 Posts</h2>
+                            <% var mod  %>
+                                <% if(data.length>=4){mod = 4}else{mod=data.length} %>
+
+
+                                    <% for(x=1; x<mod; x++){ %>
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <b><h3> <%-data[x].fname%> <%-data[x].lname%></h3></b>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <h3>1/11/2021</h3>
+                                            </div>
+                                        </div>
+
+
+                                        <p class="discussiontittle">
+                                            <%-data[x].name%>
+                                        </p>
+                                        <p class="text-secondary" style="margin-left:20px;">
+                                            <!-- <%-data[x].text%> -->
+                                        </p>
+
+                                        <p style="font-size: 20px; margin-right: 4%; margin-bottom: 20px;">
+                                            <span style="margin: 10px 20px 0 0;"><b><i class="fa fa-arrow-up" aria-hidden="true"></i></b> 365 </span>
+                                            <span><b><i class="fa fa-arrow-down" aria-hidden="true"></i></b> 38 </span>
+                                        </p>
+
+                                        <% } %>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <%- include ('partials/footer.ejs') %>
+        </div>
+        </div>
+        </div>
+    </body>
+
+    </html>

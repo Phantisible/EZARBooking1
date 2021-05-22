@@ -1,0 +1,132 @@
+<title>Owner Profile</title>
+</head>
+<%- include ('partials/head.ejs') %>
+
+    <body class="othercolorgrad">
+        <div class="container-fluid outercontain">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <%- include ('partials/header.ejs') %>
+
+                            <div class="apartprofholder">
+                                <div class="container-fluid">
+                                    <div class="row userprofholder">
+                                        <div class="optionholder">
+                                            <div class="optiondiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/iconperson.png" />
+                                                <a href="/profile" class="optiontext">
+                                                    <p class="optiontext">
+                                                        Profile Information
+                                                    </p>
+                                                </a>
+
+                                            </div>
+                                            <div class="optiondiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/folder.png" />
+                                                <a href="/apartmentProfiles/<%-user.accUID%>" class="optiontext">
+                                                    <p class="optiontext" style="color: black;">
+                                                        Apartment Profile
+                                                    </p>
+                                                </a>
+                                            </div>
+                                            <div class="optiondiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/cog.png" />
+                                                <a href="#" class="optiontext">
+                                    Settings
+                                </a>
+                                            </div>
+                                            <div class="optionlogdiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/ExitWhite.png" />
+                                                <a href="/logout" class="optiontext">
+                                    Log Out
+                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="apartprofop">
+                                            <h3 class="apartophead">What would you like to do today?</h3>
+                                            <div class="aparticon1">
+                                                <a href="/apartments">
+                                                    <img class="apartproficon" alt="Apartment Picture" src="img/moneyblue.png" />
+                                                </a>
+                                                <p class="apartoptext">Apartments Rented</p>
+                                            </div>
+
+                                            <div class="aparticon2">
+                                                <a href="/addApartment">
+                                                    <img class="apartproficon" alt="Apartment Picture" src="img/copyblue.png" />
+                                                    <p class="apartoptext">Create New Apartment</p>
+                                                </a>
+
+                                            </div>
+
+                                            <div class="aparticon3">
+                                                <a href="/apartments">
+                                                    <img class="apartproficon" alt="Apartment Picture" src="img/rentblue.png" />
+                                                </a>
+                                                <p class="apartoptext">Apartments Up For Rent</p>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="apartmentproflast">
+                                            <img class="apartprofpic" alt="Apartment Picture" src="img/hotel.png" />
+                                            <div class="apartproftextholder">
+                                                <p class="apartproftextflav">Current apartment booked</p>
+                                                <p class="apartproftextflav2">Shows details of the current apartment booked </p>
+                                            </div>
+                                        </div>
+                                        <% for (x=0;x<data.length; x++){%>
+                                            <div class="apartmentinfoprof2">
+                                                <div>
+
+                                                    <img class="apartmentinfopichis" alt="Apartment Picture" src="img/profileImg/<%-data[x].image%>" />
+
+                                                    <div class="apttextholderhis">
+                                                        <p class="apartmenttexthis">
+                                                            <%-data[x].accUID%>
+                                                                Name:
+
+                                                                <%-data[x].fname%>
+                                                                    <%-data[x].lname%>
+                                                        </p>
+                                                        <p class="apartmenttexthis">
+                                                            Contact:
+                                                            <%-data[x].contact%>
+                                                        </p>
+                                                        <p class="apartmenttexthis">
+                                                            Email Address:
+                                                            <%-data[x].emailadd%>
+                                                        </p>
+                                                        <p class="apartmenttexthis">
+                                                            Details:
+                                                            <%-data[x].details%>
+                                                        </p>
+
+                                                    </div>
+                                                </div>
+                                                <div class="aptstarandbutthis3">
+
+
+                                                    <a href="/deleteRequest/<%-appID%>/<%-data[x].accUID%>"><button type="button" class="apartmentbuttonhis">
+									Delete Request
+								</button></a>
+                                                </div>
+                                            </div>
+
+                                    </div>
+
+                                    <%}%>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include ('partials/footer.ejs') %>
+            </div>
+            </div>
+            </div>
+    </body>
+
+    </html>

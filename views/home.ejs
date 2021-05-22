@@ -1,0 +1,216 @@
+<%- include ('partials/head.ejs') %>
+    <title>Home Page</title>
+    </head>
+
+    <body class="othercolorgrad">
+        <div class="container-fluid outercontain">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row homerow">
+                        <%- include ('partials/header.ejs') %>
+                            <div class="row">
+                                <div class="col-md-12 logoholder">
+                                    <h3 class="flavoredtext">
+                                        EZ AR BOOKING
+                                    </h3>
+                                    <p class="ezflavor">Welcome to EZ AR Booking where booking and searching for apartments has never been this easy!
+                                    </p>
+                                    <p class="ezflavor2">
+                                        Here with EZ AR Booking, we provide booking peace with system ease
+                                    </p>
+                                </div>
+                            </div>
+                    </div>
+                    <%if(user.accType == 2){%>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="easyholder">
+                                    <h3 class="easylooking">
+                                        Easy Looking, Easy Booking
+                                    </h3>
+                                    <p class="easybooking">
+                                        Feel free to express opinion and ideas and search or book easy at the comfort of your own home.
+                                    </p>
+                                </div>
+
+                                <div id="piechart">
+
+                                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+                                    <script type="text/javascript">
+                                        // Load google charts
+                                        google.charts.load('current', {
+                                            'packages': ['corechart']
+                                        });
+                                        google.charts.setOnLoadCallback(drawChart);
+
+                                        // Draw the chart and set the chart values
+                                        function drawChart() {
+                                            var data = google.visualization.arrayToDataTable([
+                                                ['Task', 'Hours per Day'],
+                                                ['Apartments', <%=data.length%>],
+                                                ['Owner Accounts', <%=data.length%>],
+                                                ['Tenant Accounts', <%=data.length%> + 2]
+                                            ]);
+
+                                            // Optional; add a title and set the width and height of the chart
+                                            var options = {
+                                                'title': 'Accounts',
+                                                'width': 750,
+                                                'height': 400
+                                            };
+
+                                            // Display the chart inside the <div> element with id="piechart"
+                                            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                                            chart.draw(data, options);
+                                        }
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                        <%}%>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="easyholder">
+                                        <h3 class="easylooking">
+                                            Easy Looking, Easy Booking
+                                        </h3>
+                                        <p class="easybooking">
+                                            Feel free to express opinion and ideas and search or book easy at the comfort of your own home.
+                                        </p>
+                                    </div>
+                                    <div class="row easyrow">
+                                        <img class="underimage1" alt="Apartment searching made easy" src="img/magnifybg.png" />
+                                        <img class="underimage2" alt="Book Whenever, Wherever" src="img/clipboardbg.png" />
+                                        <img class="underimage3" alt="Forum Discussions" src="img/quotebg.png" />
+
+                                        <div class="undereasy1">
+                                            <p class="undertext">
+                                                Apartment searching <br> made easy
+                                            </p>
+                                        </div>
+                                        <div class="undereasy2">
+                                            <p class="undertext">
+                                                Book whenever, <br> wherever
+                                            </p>
+                                        </div>
+                                        <div class="undereasy3">
+                                            <p class="undertext">
+                                                Forum Discussions
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="learnbutt">
+                                        <button type="button" class="underlearn">
+                                        Learn more
+                                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 featappdiv">
+                                    <div class="featappcol">
+                                        <p class="abovefeatapp">
+                                            Here are some of our
+                                        </p>
+                                        <h3 class="featapp">
+                                            Featured Apartments
+                                        </h3>
+                                        <%var z%>
+                                            <%if(data.length>3){z=3}else{z=data.length}%>
+                                                <% for (x=0;x<z; x++){%>
+                                                    <div class="row easyrow2">
+                                                        <img class="underimage4" alt="Apartment1" src="img/imgplace.png" />
+
+                                                        <div class="undereasy4">
+                                                            <img class="starrating" alt="Star Rating" src="img/stars.png" />
+                                                            <p class="undertext2">
+                                                                Address:
+                                                                <%-data[x].city%>,
+                                                                    <%-data[x].street%>
+                                                                        <%-data[x].baranggay%><br> Room type: Shared <br> Restrictions: Females only
+                                                            </p>
+                                                            <button type="button" class="underlearn3">
+                                                                                    View
+                                                                                </button>
+                                                        </div>
+
+
+
+                                                    </div>
+                                                    <%}%>
+                                                        <div class="learnbutt">
+                                                            <button type="button" class="underlearn">
+                                                                            Learn more
+                                                                        </button>
+                                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 featrevdiv2">
+                                    <div class="featrevhold">
+                                        <img class="bubbleimage" alt="Apartment1" src="img/bubble.png" />
+                                        <h3 class="featrev">
+                                            Don't take our word for it,
+                                        </h3>
+                                        <h3 class="featrev2">
+                                            Take theirs...
+                                        </h3>
+                                    </div>
+                                    <div class="row easyrow3">
+                                        <img class="underrevpic1" alt="Review1" src="img/joana.png" />
+                                        <img class="underrevpic2" alt="Review2" src="img/arnan.png" />
+                                        <img class="underrevpic3" alt="Review3" src="img/liz.png" />
+
+
+                                        <img class="quotations1" alt="Quotation Marks" src="img/yquotes.png" />
+                                        <img class="quotations2" alt="Quotation Marks" src="img/yquotes.png" />
+                                        <img class="quotations3" alt="Quotation Marks" src="img/yquotes.png" />
+                                        <div class="underrev1">
+                                            <p class="underrevtext">
+                                                It is a very useful app
+                                            </p>
+                                            <div class="line"></div>
+                                            <p class="underrevtext2">
+                                                Joana Povadora
+                                            </p>
+                                            <p class="underrevtext3">
+                                                College Student
+                                            </p>
+                                        </div>
+                                        <div class="underrev2">
+                                            <p class="underrevtext">
+                                                I rent a lot of apartments and it's very useful for finding apartments
+                                            </p>
+                                            <div class="line"></div>
+                                            <p class="underrevtext2">
+                                                Arnan Planco
+                                            </p>
+                                            <p class="underrevtext3">
+                                                Businessman
+                                            </p>
+                                        </div>
+                                        <div class="underrev3">
+                                            <p class="underrevtext">
+                                                The app helped me find a good apartment
+                                            </p>
+                                            <div class="line"></div>
+                                            <p class="underrevtext2">
+                                                Elizabeth Espina
+                                            </p>
+                                            <p class="underrevtext3">
+                                                Developer
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <%- include ('partials/footer.ejs') %>
+                </div>
+                </head>
+
+                </body>
+
+                </html>
