@@ -121,7 +121,7 @@
                                             <%if(data.length>3){z=3}else{z=data.length}%>
                                                 <% for (x=0;x<z; x++){%>
                                                     <div class="row easyrow2">
-                                                        <img class="underimage4" alt="Apartment1" src="img/imgplace.png" />
+                                                        <img class="underimage4" alt="Apartment1" src="img/<%-data[x].image1%>" />
 
                                                         <div class="undereasy4">
                                                             <img class="starrating" alt="Star Rating" src="img/stars.png" />
@@ -142,9 +142,9 @@
                                                     </div>
                                                     <%}%>
                                                         <div class="learnbutt">
-                                                            <button type="button" class="underlearn">
-                                                                            Learn more
-                                                                        </button>
+                                                            <a href="/apartments"><button type="button" class="underlearn">
+                                                                Learn more
+                                                            </button></a>
                                                         </div>
                                     </div>
                                 </div>

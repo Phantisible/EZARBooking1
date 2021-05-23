@@ -53,7 +53,7 @@ control.get("/", (req, res) => {
     res.redirect("/login");
 })
 control.get("/login", (req, res) => {
-    res.render("login");
+    res.render("login", { check: 1 });
     // res.send("hello");
 })
 
@@ -125,7 +125,7 @@ control.get("/apartmentProfiles", (req, res) => {
             throw err
         }
         // res.send(results);
-        res.render("ownerApartmentProfiles", { data: results[results.length - 1] });
+        res.render("ownerApartmentProfiles", { data: results[results.length - 1], datas: results.length });
 
     })
 })
@@ -522,24 +522,30 @@ control.post("/changePass/:id", (req, res) => {
 
 control.post("/login", (req, res) => {
     connection.query('SELECT * FROM account WHERE emailadd="' + req.body.email + '"', (err, results) => {
-        var md5Hash = md5(req.body.password + results[0].emailadd);
-        // res.send(md5Hash.toString().substring(0, 20) + " " + results[0].password);
-        if (err) {
-            throw err
+        if (results[0] == null) {
+            res.render("login", { check: 0 })
         } else {
-            if (results[0].password === md5Hash.toString().substring(0, 20)) {
-                // req.session.accUID = JSON.stringify(results[0].accUID);
-                var string = encodeURIComponent(results[0].accUID);
-                req.session.user = results[0];
-                res.locals.user = req.session.user;
-                // res.render('home');
-
-                res.redirect("/home");
+            var md5Hash = md5(req.body.password + results[0].emailadd);
+            // res.send(md5Hash.toString().substring(0, 20) + " " + results[0].password);
+            if (err) {
+                throw err
             } else {
-                res.send("This account does not exist");
-            }
+                if (results[0].password === md5Hash.toString().substring(0, 20)) {
+                    // req.session.accUID = JSON.stringify(results[0].accUID);
+                    var string = encodeURIComponent(results[0].accUID);
+                    req.session.user = results[0];
+                    res.locals.user = req.session.user;
+                    // res.render('home');
 
+                    res.redirect("/home");
+                } else {
+                    // res.send("This account does not exist");
+                    res.render("login", { check: -1 })
+                }
+
+            }
         }
+
 
     })
 })
@@ -767,6 +773,18 @@ control.get("/edit/:id", (req, res) => {
 
 control.post("/apartmentAdd/:id", (req, res) => {
 
+    if (req.body.image1 == undefined) {
+        req.body.image1 = "imgplace.png";
+        console.log(req.body.image1);
+    }
+    if (req.body.image2 == undefined) {
+        req.body.image2 = "imgplace.png";
+        console.log(req.body.image2);
+    }
+    if (req.body.image3 == undefined) {
+        req.body.image3 = "imgplace.png";
+        console.log(req.body.image3);
+    }
     connection.query('INSERT INTO `apartment`( `accUID`, `city`, `street`, `baranggay`, `type`, `capacity`, `restriction`, `price`, `description`,`image1`,`image2`,`image3`,`image4`,`locationX`,`locationY`) VALUES ("' + req.params.id + '","' + req.body.city + '","' + req.body.street + '","' + req.body.baranggay + '","' + req.body.type + '","' + req.body.capacity + '","' + req.body.restriction + '","' + req.body.price + '","' + req.body.description + '","' + req.body.image + '","' + req.body.image1 + '","' + req.body.image2 + '","' + req.body.image3 + '","' + req.body.locationLong + '","' + req.body.locationLat + '")', (err, results) => {
         if (err) {
             throw err;

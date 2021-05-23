@@ -77,10 +77,9 @@
                                             <div class="apartmentinfoprof2">
                                                 <div>
 
-                                                    <img class="apartmentinfopichis" alt="Apartment Picture" src="img/imgplace.png" />
+                                                    <img class="apartmentinfopichis" alt="Apartment Picture" src="img/<%-data[x].image1 %>" />
 
                                                     <div class="apttextholderhis">
-                                                        ID:
                                                         <p class="apartmenttexthis">
                                                             Address:
                                                             <%-data[x].city %> ,
@@ -119,14 +118,14 @@
                                     </div>
                                 </div>
                                 <%}%>
-
                             </div>
-
                     </div>
 
                 </div>
-                <%- include ('partials/footer.ejs') %>
+
             </div>
+            <%- include ('partials/footer.ejs') %>
+        </div>
         </div>
         </div>
     </body>

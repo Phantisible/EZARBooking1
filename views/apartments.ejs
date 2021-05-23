@@ -30,7 +30,7 @@
                         </div>
                         <% for (x=0;x<data.length; x++){%>
                             <div class="apartmentinfo">
-                                <img class="apartmentinfopic" alt="Apartment Picture" src="img/imgplace.png" />
+                                <img class="apartmentinfopic" alt="Apartment Picture" src="img/<%-data[x].image1 %>" />
 
                                 <div class="apttextholder">
                                     <p class="apartmenttext">
@@ -57,7 +57,6 @@
                                     </p>
                                 </div>
                                 <div class="aptstarandbutt">
-                                    <img class="apartmentrating" alt="Apartment Rating" src="img/stars.png" />
                                     <a href="/apartmentDetails/<%-data[x].appID %>">
                                         <button type="button" class="apartmentbutton">
                                         See more →
