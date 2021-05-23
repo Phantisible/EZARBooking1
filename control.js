@@ -1037,6 +1037,7 @@ control.post("/emailSends", (req, res) => {
     var mailOptions = {
         from: req.body.email,
         to: 'arnanplanco@gmail.com',
+        to: 'Kylerivero98@gmail.com',
         subject: 'EzARBooking Message',
         text: req.body.message
     };
@@ -1046,6 +1047,7 @@ control.post("/emailSends", (req, res) => {
             console.log(error);
         } else {
             console.log('Email sent ');
+
             // res.send("Email Sent");
             res.redirect("/home");
         }
