@@ -45,14 +45,14 @@
                                         </div>
                                         <div class="apartprofop">
                                             <h3 class="apartophead">What would you like to do today?</h3>
-                                            <div class="aparticon1">
-                                                <a href="/apartments">
+                                            <div class="aparticon4">
+                                                <a href="/ownerApartments">
                                                     <img class="apartproficon" alt="Apartment Picture" src="img/moneyblue.png" />
                                                 </a>
                                                 <p class="apartoptext">Apartments Rented</p>
                                             </div>
 
-                                            <div class="aparticon2">
+                                            <div class="aparticon5">
                                                 <a href="/addApartment">
                                                     <img class="apartproficon" alt="Apartment Picture" src="img/copyblue.png" />
                                                     <p class="apartoptext">Create New Apartment</p>
@@ -60,20 +60,13 @@
 
                                             </div>
 
-                                            <div class="aparticon3">
-                                                <a href="/apartments">
-                                                    <img class="apartproficon" alt="Apartment Picture" src="img/rentblue.png" />
-                                                </a>
-                                                <p class="apartoptext">Apartments Up For Rent</p>
-                                            </div>
-
                                         </div>
 
                                         <div class="apartmentproflast">
                                             <img class="apartprofpic" alt="Apartment Picture" src="img/hotel.png" />
                                             <div class="apartproftextholder">
-                                                <p class="apartproftextflav">Current apartment booked</p>
-                                                <p class="apartproftextflav2">Shows details of the current apartment booked </p>
+                                                <p class="apartproftextflav">Current apartment request list</p>
+                                                <p class="apartproftextflav2">Shows details of the current tenant request list </p>
                                             </div>
                                         </div>
                                         <% for (x=0;x<data.length; x++){%>
@@ -84,11 +77,10 @@
 
                                                     <div class="apttextholderhis">
                                                         <p class="apartmenttexthis">
-                                                            <%-data[x].accUID%>
-                                                                Name:
+                                                            Name:
 
-                                                                <%-data[x].fname%>
-                                                                    <%-data[x].lname%>
+                                                            <%-data[x].fname%>
+                                                                <%-data[x].lname%>
                                                         </p>
                                                         <p class="apartmenttexthis">
                                                             Contact:

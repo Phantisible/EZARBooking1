@@ -116,6 +116,7 @@ control.get("/apartmentProfiles/:id", (req, res) => {
     res.redirect("/apartmentProfiles?id=" + req.params.id);
     // res.send("hello");
 })
+
 control.get("/apartmentProfiles", (req, res) => {
     var id = req.session.user.accUID;
     res.locals.user = req.session.user;
@@ -124,10 +125,24 @@ control.get("/apartmentProfiles", (req, res) => {
             throw err
         }
         // res.send(results);
-        res.render("ownerApartmentProfiles", { data: results });
+        res.render("ownerApartmentProfiles", { data: results[results.length - 1] });
 
     })
 })
+
+control.get("/ownerApartments", (req, res) => {
+    var id = req.session.user.accUID;
+    res.locals.user = req.session.user;
+    connection.query("SELECT * FROM apartment WHERE accUID='" + req.session.user.accUID + "'", (err, results) => {
+        if (err) {
+            throw err
+        }
+        // res.send(results);
+        res.render("ownerApartmentsRented", { data: results });
+
+    })
+})
+
 control.get("/requestList/:id", (req, res) => {
     res.redirect("/requestList?id=" + req.params.id);
 })
@@ -595,6 +610,7 @@ control.get("/apartmentDetails", (req, res) => {
             accounts[0].lname = results[0].lname;
             accounts[0].contact = results[0].contact;
             accounts[0].emailadd = results[0].emailadd;
+            accounts[0].accImage = results[0].image;
             accounts[0].accountType = req.session.user.accType;
             accounts[0].checkReq = 0;
             // res.send(accounts[0]);
@@ -624,8 +640,9 @@ control.get("/apartmentDetails", (req, res) => {
     })
 })
 control.get("/requestedRents", (req, res) => {
-    // var x = 0,
-    //     y = 0;
+    var x = 0,
+        y = 0,
+        z = 0;
     res.locals.user = req.session.user;
     var datas = new Array();
     var temp;
@@ -638,24 +655,30 @@ control.get("/requestedRents", (req, res) => {
                 if (err) {
                     throw err
                 }
-
-                console.log(results.length);
-                var z;
+                console.log(accounts);
+                console.log(results);
                 for (z = 0; z < accounts.length; z++) {
                     for (x = 0; x < results.length; x++) {
-
                         // console.log(accounts[z]);
                         if (accounts[z].appID == results[x].appID) {
-                            datas[z] = results[x];
-                            accounts[z] = 'hello';
+                            // datas[z].city = results[x].city;
+                            // datas[z].street = results[x].street;
+                            // datas[z].baranggay = results[x].baranggay;
+                            // datas[z].restriction = results[x].restriction;
+                            // datas[z].capacity = results[x].capacity;
+                            // datas[z].price = results[x].price;
+                            // accounts[z] = 'hello';
                             // y++;
+                            datas[y] = results[x];
+                            // console.log(results[x]);
+                            y++;
                         }
 
 
                     }
                 }
 
-                console.log(datas.length);
+                console.log(datas);
 
                 res.render("tenantRequestedRents", { data: datas });
                 // res.send(datas);
@@ -697,7 +720,7 @@ control.get("/deleteApartment/:id", (req, res) => {
         if (err) {
             throw err;
         } else {
-            res.redirect('back');
+            res.redirect('/profile');
         }
     })
 })
@@ -840,7 +863,7 @@ control.get("/requestRent/:id/:id2", (req, res) => {
             // req.session.user.fname;
 
             res.locals.user = req.session.user;
-            res.redirect("/profile");
+            res.redirect("/requestedRents/" + req.params.id2);
         }
     })
 

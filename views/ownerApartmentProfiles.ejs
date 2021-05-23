@@ -46,7 +46,7 @@
                                         <div class="apartprofop">
                                             <h3 class="apartophead">What would you like to do today?</h3>
                                             <div class="aparticon4">
-                                                <a href="/apartments">
+                                                <a href="/ownerApartments">
                                                     <img class="apartproficon" alt="Apartment Picture" src="img/moneyblue.png" />
                                                 </a>
                                                 <p class="apartoptext">Apartments Rented</p>
@@ -69,61 +69,61 @@
                                                 <p class="apartproftextflav2">Shows details of the newly added apartments </p>
                                             </div>
                                         </div>
-                                        <% for (x=0;x<data.length; x++){%>
-                                            <div class="apartmentinfoprof2">
-                                                <div>
+                                        <div class="apartmentinfoprof2">
+                                            <div>
 
-                                                    <img class="apartmentinfopichis" alt="Apartment Picture" src="img/imgplace.png" />
+                                                <img class="apartmentinfopichis" alt="Apartment Picture" src="img/<%-data.image1%>" />
 
-                                                    <div class="apttextholderhis">
-                                                        <p class="apartmenttexthis">
-                                                            Address:
-                                                            <%-data[x].city%>
-                                                                <%-data[x].street%>
-                                                                    <%-data[x].baranggay%>
+                                                <div class="apttextholderhis">
+                                                    <p class="apartmenttexthis">
+                                                        Address:
+                                                        <%-data.city%>
+                                                            <%-data.street%>
+                                                                <%-data.baranggay%>
+                                                    </p>
+                                                    <p class="apartmenttexthis">
+                                                        Room type:
+                                                        <%-data.type%>
+                                                    </p>
+                                                    <p class="apartmenttexthis">
+                                                        Capacity:
+                                                        <%-data.capacity%>
+                                                    </p>
+                                                    <p class="apartmenttexthis">
+                                                        Restriction:
+                                                        <%-data.restriction%>
+                                                    </p>
+                                                    <p class="apartmenttexthis">
+                                                        Price: Php
+                                                        <%-data.price%>/ month
+                                                    </p>
+                                                    <p class="apartmenttexttenant">
+                                                        Details:<br>
+                                                        <p>
+                                                            <%-data.description%>
                                                         </p>
-                                                        <p class="apartmenttexthis">
-                                                            Room type:
-                                                            <%-data[x].type%>
-                                                        </p>
-                                                        <p class="apartmenttexthis">
-                                                            Capacity:
-                                                            <%-data[x].capacity%>
-                                                        </p>
-                                                        <p class="apartmenttexthis">
-                                                            Restriction:
-                                                            <%-data[x].restriction%>
-                                                        </p>
-                                                        <p class="apartmenttexthis">
-                                                            Price: Php
-                                                            <%-data[x].price%>/ month
-                                                        </p>
-                                                        <p class="apartmenttexttenant">
-                                                            Tenants:
-                                                        </p>
-                                                        <img class="aptdetailpicown" src="img/liz.png">
 
-                                                    </div>
-                                                </div>
-                                                <div class="aptstarandbutthis3">
-                                                    <a href="/apartmentDetails/<%-data[x].appID %>"><button type="button" class="apartmentbuttonhis">
-									See more →
-								</button></a>
-                                                    <a href="/deleteApartment/<%-data[x].appID %>"><button type="button" class="apartmentbuttonhis">
-									Delete
-								</button></a>
-                                                    <a href="/editApartment/<%-data[x].appID %>"><button type="button" class="apartmentbuttonhis">
-									Edit
-								</button></a>
-                                                    <a href="/requestList/<%-data[x].appID %>"><button type="button" class="apartmentbuttonhis">
-									Request List
-								</button></a>
+                                                    </p>
+
+
                                                 </div>
                                             </div>
+                                            <div class="aptstarandbutthis3">
+                                                <a href="/apartmentDetails/<%-data.appID %>"><button type="button" class="apartmentbuttonhis">
+									See more →
+								</button></a>
+
+                                                <a href="/editApartment/<%-data.appID %>"><button type="button" class="apartmentbuttonhis">
+									Edit
+								</button></a>
+                                                <a href="/requestList/<%-data.appID %>"><button type="button" class="apartmentbuttonhis">
+									Request List
+								</button></a>
+                                            </div>
+                                        </div>
 
                                     </div>
                                 </div>
-                                <%}%>
                             </div>
                     </div>
                 </div>

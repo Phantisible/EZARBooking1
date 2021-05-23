@@ -1,0 +1,116 @@
+<%- include ('partials/head.ejs') %>
+
+    </head>
+
+    <body class="othercolorgrad">
+        <div class="container-fluid outercontain">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <%- include ('partials/header.ejs') %>
+                            <div class="historyholder2">
+                                <div class="container-fluid">
+                                    <div class="row userprofholder">
+                                        <div class="optionholder">
+                                            <div class="optiondiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/iconperson.png" />
+                                                <a href="/profile" class="optiontext">
+										Profile Information
+									</a>
+                                            </div>
+                                            <div class="optiondiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/folder.png" />
+                                                <a href="/apartmentProfiles/<%-user.accUID%>" class="optiontext" style="color: black;">
+										Apartment Profiles
+									</a>
+                                            </div>
+                                            <div class="optiondiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/cog.png" />
+                                                <a href="/settings" class="optiontext">
+										Settings
+									</a>
+                                            </div>
+                                            <div class="optionlogdiv">
+                                                <img class="optionimg" alt="Profile Information" src="img/ExitWhite.png" />
+                                                <a href="/logout" class="optiontext">
+										Log Out
+									</a>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="apartmenthisbooked">
+                                            <img class="aparthispic" alt="Apartment Picture" src="img/moneyblue.png" />
+                                            <div class="aparthistextholder">
+                                                <p class="aparthistext">Apartments Rented</p>
+                                                <p class="aparthistext2">Shows details of the current apartments that are fully booked </p>
+                                            </div>
+                                        </div>
+                                        <div class="rentedapartholder">
+
+                                            <%for(x=0; x<data.length; x++){%>
+                                                <div class="apartmentrented">
+                                                    <div>
+                                                        <img class="apartmentinfopichis" alt="Apartment Picture" src="img/<%-data[x].image1%>" />
+
+                                                        <div class="apttextholderhis">
+                                                            <p class="apartmenttexthis">
+                                                                Address:
+                                                                <%-data[x].city%>
+                                                                    <%-data[x].street%>
+                                                                        <%-data[x].baranggay%>
+                                                            </p>
+                                                            <p class="apartmenttexthis">
+                                                                Room type:
+                                                                <%-data[x].type%>
+                                                            </p>
+                                                            <p class="apartmenttexthis">
+                                                                Capacity:
+                                                                <%-data[x].capacity%>
+                                                            </p>
+                                                            <p class="apartmenttexthis">
+                                                                Restriction:
+                                                                <%-data[x].restriction%>
+                                                            </p>
+                                                            <p class="apartmenttexthis">
+                                                                Price: Php
+                                                                <%-data[x].price%>/ month
+                                                            </p>
+                                                            <p class="apartmenttexttenant">
+                                                                Details:<br>
+                                                                <p>
+                                                                    <%-data[x].description%>
+                                                                </p>
+
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="aptstarandbutthis3">
+                                                        <a href="/apartmentDetails/<%-data[x].appID %>"><button type="button" class="apartmentbuttonhis">
+                                                            See more →
+                                                        </button></a>
+                                                        <a href="/editApartment/<%-data[x].appID %>"><button type="button" class="apartmentbuttonhis">
+                                                            Edit
+                                                        </button></a>
+                                                        <a href="/requestList/<%-data[x].appID %>"><button type="button" class="apartmentbuttonhis">
+                                                            Request List
+                                                        </button></a>
+                                                    </div>
+
+                                                </div>
+
+                                                <%}%>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <%- include ('partials/footer.ejs') %>
+                    </div>
+                </div>
+            </div>
+    </body>
+
+    </html>
