@@ -116,7 +116,7 @@
                                                             </div>
                                         </div>
 
-                                        <div class="userholderedit4">
+                                        <div class="userholderedit4" style="height: 800px;">
                                             <h3 class="tenanttext">
                                                 Change Password
                                             </h3>
@@ -146,7 +146,14 @@
                                                                     </label>
                                                                     <input class="tenantinfoinput" type="Password" class="form-control" name="repeatpass" required/>
                                                                 </div>
-                                                                <button type="submit" class="tenanteditbutton2">Save</button>
+                                                                <%if(check==1){%>
+                                                                    <p style="color: red;">Old Password Incorrect</p><br><br>
+                                                                    <%}else if(check==2){%>
+                                                                        <p style="color: red;">Password Mismatch</p><br><br>
+                                                                        <%}%>
+
+                                                                            <button type="submit" class="tenanteditbutton2" style="margin-top: 50px;">Save</button>
+
 
                                                             </form>
                                                         </div>
@@ -223,8 +230,9 @@
                                                 }
                                             </script>
                                         </div>
-
+                                        <br>
                                     </div>
+
                                 </div>
                             </div>
 

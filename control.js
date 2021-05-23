@@ -475,8 +475,10 @@ control.get("/map", (req, res) => {
 })
 
 control.get("/settings", (req, res) => {
+
+
     res.locals.user = req.session.user;
-    res.render("changePass");
+    res.render("changePass", { check: req.query.check });
 
 
 })
@@ -502,12 +504,11 @@ control.post("/changePass/:id", (req, res) => {
 
                 })
             } else {
-                res.send("Password Mismatch")
+                res.redirect("/settings?check=2");
             }
 
         } else {
-            console.log("fail");
-            res.redirect("/profile");
+            res.redirect("/settings?check=1");
         }
         //     res.send(results);
         // } else {
