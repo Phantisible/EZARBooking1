@@ -891,18 +891,33 @@ control.post("/signup", (req, res) => {
 
     req.body.uuid = generateCode();
     if (req.body.password === req.body.repeatpass) {
-        var md5Hash = md5(req.body.password + req.body.email);
-        connection.query("INSERT INTO `account`( `accUID`, `fname`, `lname`,`gender`,`contact`,`birthdate`, `emailadd`, `password`,`accType`) VALUES ('" + req.body.uuid + "','" + req.body.fname + "','" + req.body.lname + "','" + req.body.gender + "','" + req.body.contact + "','" + req.body.birthdate + "','" + req.body.email + "','" + md5Hash.toString() + "'," + req.body.acctype + ")", (err, results) => {
 
-                if (err) {
-                    throw err
-                } else {
-                    // res.send("Account added");
-                    res.render("login");
+        connection.query("SELECT * FROM account WHERE emailadd ='" + req.body.email + "'", (err, accounts) => {
+            if (err) {
+                throw err;
+            }
 
-                }
-            })
-            // res.send("Sakto ra");
+            if (accounts[0] == null) {
+                var md5Hash = md5(req.body.password + req.body.email);
+                connection.query("INSERT INTO `account`( `accUID`, `fname`, `lname`,`gender`,`contact`,`birthdate`, `emailadd`, `password`,`accType`) VALUES ('" + req.body.uuid + "','" + req.body.fname + "','" + req.body.lname + "','" + req.body.gender + "','" + req.body.contact + "','" + req.body.birthdate + "','" + req.body.email + "','" + md5Hash.toString() + "'," + req.body.acctype + ")", (err, results) => {
+
+                    if (err) {
+                        throw err
+                    } else {
+                        // res.send("Account added");
+                        res.render("login");
+
+                    }
+                })
+            } else {
+                res.send("email is already in used");
+            }
+
+
+        })
+
+
+        // res.send("Sakto ra");
     } else {
         res.send("Password Mismatch");
     }
