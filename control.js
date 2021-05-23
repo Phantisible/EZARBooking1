@@ -492,7 +492,7 @@ control.post("/changePass/:id", (req, res) => {
 
         } else {
             console.log("fail");
-            res.send(md5Hash.toString().substring(0, 20))
+            res.redirect("/profile");
         }
         //     res.send(results);
         // } else {
